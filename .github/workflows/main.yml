@@ -1,0 +1,51 @@
+name: Atualiza versão do README.md após novo release
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-readme-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Garante que está na branch principal
+        run: git checkout main
+
+      - name: Descobre a versão correta do release
+        id: get_version
+        run: |
+          if [ -n "${{ github.event.release.tag_name }}" ]; then
+            VERSION="${{ github.event.release.tag_name }}"
+          else
+            VERSION=$(git tag --list --sort=-creatordate | head -n 1)
+            if [ -z "$VERSION" ]; then
+              VERSION="${{ inputs.versao || '0.0.0.0' }}"
+            fi
+          fi
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: Atualiza README.md com a nova versão do release
+        run: |
+          README="README.md"
+          VERSION="${{ env.VERSION }}"
+          # Substitui apenas trechos vX.X.X.X por v$VERSION
+          sed -i -E "s/v[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/$VERSION/g" $README
+
+      - name: Commit e push da atualização automática
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: "Atualização automática da versão do README.md para ${{ env.VERSION }}"
+          add: README.md
+          default_author: github_actions
+          push: true
+          branch: main
