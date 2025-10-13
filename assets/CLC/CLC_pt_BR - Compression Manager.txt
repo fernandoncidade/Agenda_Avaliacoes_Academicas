@@ -1,0 +1,83 @@
+CONTRATO DE LICENCIAMENTO COMERCIAL - AGENDA DE AVALIAÇÕES ACADÊMICAS
+
+Este Contrato de Licenciamento Comercial ("Contrato") é celebrado entre:
+
+LICENCIADOR: Fernando Nillsson Cidade, doravante designado "LICENCIADOR".
+e
+LICENCIADO: Pessoa física ou jurídica que adquire a licença comercial do software AGENDA DE AVALIAÇÕES ACADÊMICAS, doravante designado "LICENCIADO".
+
+Este Contrato complementa os termos da Licença de Uso de Usuário Final (EULA) e estabelece condições específicas para uso comercial e redistribuição.
+
+1. OBJETO
+1.1 O LICENCIADOR concede ao LICENCIADO licença de uso do software "AGENDA DE AVALIAÇÕES ACADÊMICAS" ("Software"), conforme modalidade contratada.
+1.2 O Software é um utilitário gráfico para Windows desenvolvido em Python com PySide6, destinado a consolidar, organizar e apresentar datas de atividades avaliativas. A distribuição comercial normalmente se dá em formato compilado/executável.
+
+2. MODALIDADES DE LICENCIAMENTO
+2.1 Licença Individual
+  a) Instalação em até 2 (dois) dispositivos do mesmo LICENCIADO.
+  b) Atualizações e correções por 1 (um) ano.
+  c) Suporte técnico básico por e-mail por 1 (um) ano.
+2.2 Licença Institucional (Pequenas Instituições)
+  a) Instalação em até 10 (dez) estações dentro da mesma organização.
+  b) Atualizações por 1 (um) ano; suporte prioritário por e-mail.
+  c) Possibilidade de pequenas customizações de texto/branding, quando aplicável.
+2.3 Licença Corporativa / Campus
+  a) Instalação ilimitada mediante acordo comercial.
+  b) Atualizações e suporte definidos em contrato (SLA) e opções de integração personalizada.
+
+3. PREÇO E PAGAMENTO
+3.1 Valores e formas de pagamento são definidos por proposta comercial ou tabela vigente.
+3.2 Pagamentos via boleto, cartão, transferência bancária ou PIX, salvo acordo diverso.
+3.3 Atrasos sujeitam-se a juros e penalidades conforme negociação.
+
+4. PRAZO E RENOVAÇÃO
+4.1 O Contrato vigora conforme modalidade e período pago.
+4.2 Renovação de atualizações e suporte mediante novo pagamento; o uso do executável não é condicionado à renovação, salvo disposição contratual contrária.
+
+5. SUPORTE E ATUALIZAÇÕES
+5.1 Suporte e atualizações limitam-se à versão distribuída como executável, conforme modalidade contratada.
+5.2 O LICENCIADOR fornecerá assistência para instalação do executável, orientação e correção de defeitos que impeçam o uso essencial.
+
+6. LIMITAÇÕES DE RESPONSABILIDADE
+6.1 O LICENCIADOR não será responsável por danos indiretos, lucros cessantes ou perdas consequenciais.
+6.2 O LICENCIADO é responsável por backups de dados (exportações, arquivos de configuração) e pela conformidade com políticas internas de TI.
+6.3 O Software é fornecido "no estado em que se encontra", exceto garantias legais.
+
+7. PRIVACIDADE E DADOS
+7.1 Dados do usuário (atividades e configurações) são armazenados localmente; não há transmissão automática a servidores externos no executável padrão.
+7.2 Tratamento de dados pessoais será compatível com legislação aplicável (ex.: LGPD) conforme descrito na Política de Privacidade entregue ao LICENCIADO.
+
+8. ACESSIBILIDADE E CONFORMIDADE PARA LOJAS DIGITAIS
+8.1 Quando aplicável, a documentação de acessibilidade (ex.: declaração MS Store / ADA) acompanha a distribuição comercial.
+8.2 A inclusão em lojas digitais não altera as cláusulas deste Contrato, salvo exigência contrária por escrito do distribuidor.
+
+9. COMPONENTES DE TERCEIROS
+9.1 O Software pode incluir componentes de terceiros (ex.: ReportLab). Licenças e notices constam no pacote de distribuição.
+9.2 O LICENCIADOR disponibiliza lista de dependências e textos de licença ao LICENCIADO.
+
+10. TRANSFERÊNCIA E RESTRIÇÕES
+10.1 O LICENCIADO não pode sublicenciar, redistribuir ou revender o executável sem autorização expressa do LICENCIADOR, exceto nos termos da modalidade adquirida.
+10.2 Instalações além das permitidas configuram infração contratual.
+
+11. RESCISÃO
+11.1 Rescisão por violação contratual, inadimplência ou acordo mútuo.
+11.2 Em caso de rescisão por culpa do LICENCIADO, valores pagos não serão reembolsados salvo acordo em contrário.
+
+12. LEI APLICÁVEL E FORO
+12.1 Este Contrato é regido pelas leis brasileiras.
+12.2 Fica eleito o foro da Comarca de São José dos Pinhais, Estado do Paraná, Brasil, para dirimir conflitos.
+
+DISPOSIÇÕES FINAIS
+- Serviços adicionais (personalização, integração, treinamento) serão objeto de aditivo contratual.
+- O LICENCIADOR entrega o executável e recursos; o LICENCIADO reconhece que não precisa instalar dependências de desenvolvimento para uso do executável.
+
+Assinam eletronicamente as partes por aceitarem os termos.
+
+Brasil, Paraná, São José dos Pinhais
+
+Fernando Nillsson Cidade
+______________________________
+LICENCIADOR
+
+______________________________
+LICENCIADO

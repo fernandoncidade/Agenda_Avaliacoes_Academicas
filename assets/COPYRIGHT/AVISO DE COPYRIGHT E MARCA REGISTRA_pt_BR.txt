@@ -1,0 +1,8 @@
+AVISO DE COPYRIGHT E MARCA REGISTRADA
+======================================
+
+Copyright (C) 2025 Fernando Nillsson Cidade. Todos os direitos reservados. 
+
+O software AGENDA DE AVALIAÇÕES ACADÊMICAS e toda a documentação associada, incluindo todo o conteúdo do Software e Dependências, são propriedade intelectual de Fernando Nillsson Cidade. A proteção de copyright abrange, mas não se limita a, o código-fonte do programa, a interface gráfica, os textos, os manuais e a descrição do projeto.
+
+O nome "AGENDA DE AVALIAÇÕES ACADÊMICAS" é uma marca comercial pertencente a Fernando Nillsson Cidade. O uso não autorizado do nome, logotipo ou qualquer material distintivo associado ao projeto é estritamente proibido.

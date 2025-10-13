@@ -1,0 +1,52 @@
+NOTAS DE LANÇAMENTO: Versão: 0.0.1.0
+09 de Outubro de 2025
+
+Primeira versão pública — AGENDA DE AVALIAÇÕES ACADÊMICAS
+
+Resumo:
+Esta é a primeira versão pública do aplicativo Agenda de Avaliações Acadêmicas, um utilitário gráfico leve para Windows desenvolvido em Python com PySide6. O objetivo é consolidar, organizar e apresentar datas de atividades avaliativas (provas, trabalhos, apresentações etc.) em uma visão cronológica única, com opções de exportação e personalização.
+
+O que foi implementado:
+- Cadastro de atividades com campos: curso, ementa, semestre, disciplina, turma, tipo de avaliação, sequência e data.
+- Visão cronológica consolidada e ordenação automática por data.
+- Destaque por cores para identificação rápida de disciplinas/padrões.
+- Exportação para PDF das listas de atividades (ReportLab).
+- Edição individual e em lote de entradas; exclusão selecionada.
+- Persistência de preferências e dados locais em JSON no diretório do usuário (%APPDATA% no Windows).
+- Interface multilíngue (Português pt_BR / Inglês en_US) com troca em tempo de execução.
+- Janela "Sobre" com histórico, licenças, notices e política de privacidade carregados a partir dos recursos incluídos.
+- Preparado para empacotamento como executável Windows (builds com PyInstaller contemplados).
+
+Como instalar / executar:
+1. Instalar dependências (para desenvolvimento):
+   pip install -r requirements.txt
+2. Executar (modo desenvolvimento):
+   python Interface_Grafica.py
+Observação: o executável gerado para distribuição não requer instalação separada de dependências Python.
+
+Como verificar (testes rápidos):
+- Abra o aplicativo.
+- Cadastre algumas atividades completas (preencha todos os campos).
+- Verifique a ordenação cronológica e o destaque por cores.
+- Exporte a lista para PDF e confirme o arquivo gerado no local escolhido.
+- Troque o idioma para English e confirme textos traduzidos na interface e nas mensagens.
+
+Privacidade e armazenamento:
+- Todos os dados do usuário são mantidos localmente; o executável padrão não envia telemetria automática.
+- Consulte assets/PRIVACY_POLICY/Privacy_Policy_pt_BR.txt para detalhes.
+
+Limitações conhecidas (inicial):
+- Importação/integração em nuvem não implementada.
+- Funcionalidades avançadas de sincronização e multiusuário não estão presentes nesta versão inicial.
+
+Licença e avisos:
+- Projeto licenciado sob MIT (ver arquivo LICENSE).
+- Componentes de terceiros e suas licenças listados em assets/NOTICES/NOTICE_pt_BR.txt e requirements.txt.
+
+Contatos / suporte:
+- Autor: Fernando Nillsson Cidade
+- E-mail: linceu_lighthouse@outlook.com
+- Relatos de bugs e contribuições: abrir issue no repositório do projeto.
+
+Notas finais:
+- Esta versão prioriza estabilidade e simplicidade. Futuras versões incluirão melhorias de usabilidade, filtros avançados e opções de importação/exportação adicionais.

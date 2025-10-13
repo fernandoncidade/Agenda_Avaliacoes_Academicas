@@ -1,0 +1,13 @@
+História, Justificativa e Motivação do Desenvolvimento
+
+No início, a necessidade foi simples e prática: cansado de abrir várias agendas, planilhas e mensagens para descobrir quando cada prova ou trabalho aconteceria, surgiu a ideia de juntar todas as datas importantes do semestre em um único lugar acessível e organizado. A primeira versão nasceu como um rascunho — uma lista manual que já poupava tempo — porém logo ficou claro que a automação tornaria essa tarefa exponencialmente mais eficiente.
+
+O propósito do aplicativo AGENDA DE AVALIAÇÕES ACADÊMICAS foi, desde o princípio, economizar tempo e reduzir o estresse de estudantes e professores ao consultar datas avaliativas. Consolidando atividades de todas as disciplinas matriculadas no semestre em um único arquivo Visual e exportável, o usuário ganha uma visão cronológica clara: da atividade mais próxima à mais distante, permitindo planejamento e priorização com poucos cliques.
+
+Para melhorar a identificação rápida, a distinção por cores foi implementada — cada disciplina ou padrão de atividades pode receber uma cor associada, tornando o reconhecimento visual imediato mesmo em listas longas. A tradução integrada (pt_BR / en_US) amplia o alcance do aplicativo, atendendo a contextos multilíngues e facilitando o uso em ambientes acadêmicos internacionais ou bilíngues.
+
+Além disso, funcionalidades como exportação para PDF, filtros, edição em lote, e ordenação automática por data transformam o pequeno utilitário inicial em uma ferramenta robusta para gestão do calendário acadêmico. A persistência de configurações e a possibilidade de empacotamento como executável tornam o uso prático e pronto para distribuição sem dependências manuais.
+
+A justificativa criativa que guiou o desenvolvimento foi a seguinte: transformar o caos temporal das avaliações em uma narrativa ordenada do semestre — um "mapa das batalhas" acadêmicas que permita ao usuário planejar suas vitórias com antecedência. Cada cor, cada entrada e cada exportação representam um esforço para devolver tempo livre ao usuário, reduzir ansiedade e aumentar a eficiência de estudos e organização.
+
+Em suma, este projeto nasceu de uma frustração comum e evoluiu para uma solução elegante e prática: automatizar a coleta, a organização e a apresentação das datas avaliativas para que o semestres deixe de ser um labirinto de prazos e passe a ser uma rota clara e navegável rumo ao sucesso acadêmico.

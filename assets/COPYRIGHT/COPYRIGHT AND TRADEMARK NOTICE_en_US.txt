@@ -1,0 +1,8 @@
+COPYRIGHT AND TRADEMARK NOTICE
+======================================
+
+Copyright (C) 2025 Fernando Nillsson Cidade. All rights reserved.
+
+The AGENDA DE AVALIAÇÕES ACADÊMICAS software and all associated documentation, including all content of the Software and Dependencies, are the intellectual property of Fernando Nillsson Cidade. Copyright protection covers, but is not limited to, the program's source code, graphical interface, texts, manuals, and project description.
+
+The name "AGENDA DE AVALIAÇÕES ACADÊMICAS" is a trademark belonging to Fernando Nillsson Cidade. The unauthorized use of the name, logo, or any distinctive material associated with the project is strictly prohibited.
