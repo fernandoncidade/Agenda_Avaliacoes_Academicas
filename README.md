@@ -15,7 +15,7 @@
 
 # AGENDA DE AVALIAÇÕES ACADÊMICAS
 
-Versão: v0.0.0.0 — 09 de Outubro de 2025  
+Versão: v0.0.1.0 — 09 de Outubro de 2025  
 Autor: Fernando Nillsson Cidade
 
 ## Visão geral
@@ -95,7 +95,7 @@ Ajuste hooks e arquivos de dados conforme necessário (traduções, assets, LICE
 
 --- 
 
-Pequena nota: esta é a primeira versão pública (v0.0.0.0). O foco foi estabilidade e simplicidade; futuras versões trarão filtros avançados, importação/exportação adicionais e melhorias de usabilidade.
+Pequena nota: esta é a primeira versão pública (v0.0.1.0). O foco foi estabilidade e simplicidade; futuras versões trarão filtros avançados, importação/exportação adicionais e melhorias de usabilidade.
 
 **Total de downloads acumulados:**  
 ![GitHub all releases](https://img.shields.io/github/downloads/fernandoncidade/Agenda_Avaliacoes_Academicas/total?label=Downloads%20totais%20(Agenda%20Avaliações%20Acadêmicas))
@@ -110,7 +110,7 @@ Pequena nota: esta é a primeira versão pública (v0.0.0.0). O foco foi estabil
 
 # ACADEMIC ASSESSMENTS SCHEDULE
 
-Version: v0.0.0.0 — October 9, 2025  
+Version: v0.0.1.0 — October 9, 2025  
 Author: Fernando Nillsson Cidade
 
 ## Overview
@@ -190,7 +190,7 @@ Adjust hooks and data files as needed (translations, assets, LICENSES, NOTICE, P
 
 --- 
 
-Small note: this is the first public version (v0.0.0.0). The focus was stability and simplicity; future releases will bring advanced filters, additional import/export and usability improvements.
+Small note: this is the first public version (v0.0.1.0). The focus was stability and simplicity; future releases will bring advanced filters, additional import/export and usability improvements.
 
 **Total cumulative downloads:**  
 ![GitHub all releases](https://img.shields.io/github/downloads/fernandoncidade/Agenda_Avaliacoes_Academicas/total?label=Total%20Downloads%20(Agenda%20Avaliações%20Acadêmicas))
