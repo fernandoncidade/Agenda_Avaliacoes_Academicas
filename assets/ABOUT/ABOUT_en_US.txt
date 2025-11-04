@@ -1,0 +1,55 @@
+ACADEMIC ASSESSMENTS SCHEDULE
+Version: 0.0.1.0
+Author: Fernando Nillsson Cidade
+
+Summary:
+The Academic Assessments Schedule is a lightweight graphical utility for Windows developed in Python with PySide6. Its primary purpose is to consolidate, organize, and present the dates of assessment activities (exams, tests, assignments, presentations, etc.) for all courses enrolled in the current semester in a single accessible and visual location. The interface prioritizes quick consultation and temporal clarity, displaying activities in chronological order — from nearest to farthest — and offering tools for export, filtering, and visual customization.
+
+Main features:
+- Registration of assessment activities with fields: course, syllabus, semester, subject, class, assessment type, sequence, and date.
+- Consolidated chronological view of all activities.
+- Color highlighting for easy identification of subjects/activity patterns.
+- Multilingual support: Portuguese (pt_BR) and English (en_US) with runtime switching.
+- PDF export of activity lists.
+- Individual and batch editing of entries; selective deletion.
+- Filters and automatic date sorting.
+- Persistence of user settings (language, color mode, preferences).
+- Prepared for packaging as a Windows executable (distribution without requiring manual installation of Python dependencies).
+
+Architecture and integration:
+- GUI: PySide6 (Qt) with custom widgets for dynamic selection of courses, syllabi, semesters and subjects.
+- Main modules:
+  - Gerenciador_Atividades: logic for creating, listing, editing, deleting and exporting activities.
+  - Banco_Dados: provides lists and mappings of courses, classes and assessment types, enabling translation and language-specific configuration.
+- Persistence: preferences stored as JSON files in the user's persistent directory (e.g., AppData).
+- Operations requiring external libraries (e.g., PDF generation) use standard project Python libraries (ReportLab for PDF).
+
+Privacy and data storage:
+- All user data (activities and settings) are kept locally in the persistent directory.
+- No information is automatically transmitted to external servers by the application.
+- Exported files are saved to the location chosen by the user.
+
+How to use (quick guide):
+1. Open the application.
+2. Select course, syllabus and semester to load available subjects.
+3. Fill in assessment type, sequence, date, subject and class; click "Register" to save.
+4. Use the buttons to edit, delete or export activities to PDF.
+5. Change language or color mode in the options menu as needed.
+
+Distribution and packaging:
+- The project is compatible with packagers (e.g., PyInstaller) to generate Windows executables that include resources and translations.
+- When distributed as an executable, the end user does not need to install Python dependencies.
+
+License:
+- Project licensed under MIT (see LICENSE file).
+- Third-party components (if any) retain their own licenses; license texts and notices are provided in the installer/packaging license folder.
+
+Contacts and support:
+- Author: Fernando Nillsson Cidade
+- Bug reports, suggestions and contributions: open an issue or pull request in the project repository.
+
+History and motivation:
+- Driven by the practical need to reduce time and friction when checking assessment deadlines, the application was created to transform a scattered process (multiple calendars, spreadsheets and messages) into a single, ordered and automated view of the semester. Color distinction, integrated translation and PDF export were implemented to make the tool useful in different academic contexts and to support better planning and reduced user anxiety.
+
+Final notes:
+- For developers interested in extending the project, consult README.md and the source code for details on module structure, extension points and persistence patterns.

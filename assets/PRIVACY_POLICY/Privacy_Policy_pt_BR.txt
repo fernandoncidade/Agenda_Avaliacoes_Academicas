@@ -1,0 +1,57 @@
+Política de Privacidade - AGENDA DE AVALIAÇÕES ACADÊMICAS
+Última atualização: 09 de Outubro de 2025
+Versão: 0.0.1.0
+
+Objetivo
+- Esta Política descreve como a AGENDA DE AVALIAÇÕES ACADÊMICAS ("Aplicativo" ou "Software") coleta, armazena, processa e protege informações no ambiente do usuário. O aplicativo foi projetado para operar localmente, sem telemetria automática por padrão.
+
+Escopo e princípios
+- Operação local e minimização: todos os dados principais permanecem no dispositivo do usuário; somente são tratados os dados estritamente necessários para as funcionalidades (cadastro, organização, exportação e persistência de preferências).
+- Transparência e controle: o usuário mantém controle total sobre os dados inseridos, importados e exportados.
+
+Dados processados
+- Dados de atividades: títulos, descrições, tipo de avaliação, disciplina, curso, semestre, turma, sequência e datas das atividades inseridas pelo usuário.
+- Preferências e configurações: idioma, modo de cores, mapeamentos de cores, listas locais e demais opções armazenadas em arquivos de configuração (JSON).
+- Arquivos gerados/selecionados: exportações (por exemplo PDF), arquivos de importação e quaisquer arquivos que o usuário escolha abrir ou salvar por meio do Aplicativo.
+- Registros locais (opcionais): logs de execução ou de erro podem ser gravados localmente se o recurso estiver habilitado para diagnóstico.
+
+Armazenamento e retenção
+- Local de armazenamento: dados e configurações são salvos no diretório persistente do usuário (por exemplo, %APPDATA% no Windows). O caminho exato é definido pelo sistema operacional.
+- Retenção: os dados permanecem enquanto o usuário não os excluir; o usuário pode apagar manualmente preferências, listas e exportações a qualquer momento.
+- Exportações: arquivos exportados (PDF, CSV, etc.) são salvos no local escolhido pelo usuário no ato da exportação.
+
+Transmissão e compartilhamento
+- Sem transmissão padrão: o executável padrão não transmite automaticamente dados a servidores externos.
+- Compartilhamento explícito: qualquer envio de dados a terceiros (e.g., compartilhar um PDF) ocorre somente por ação direta do usuário.
+- Integrações opcionais: integrações que impliquem transmissão de dados (se implementadas no futuro) serão informadas previamente e requererão consentimento explícito.
+
+Base legal (LGPD)
+- O tratamento local de dados é realizado para execução das funcionalidades solicitadas pelo usuário. Como o Aplicativo opera localmente, o usuário mantém controle direto sobre seus dados.
+- Caso o Software venha a oferecer funcionalidades que transmitam dados a terceiros, tais operações serão descritas separadamente, com fundamentos legais e mecanismos de consentimento conforme a LGPD.
+
+Segurança
+- O Aplicativo adota práticas básicas para gravação segura de arquivos locais; a proteção final depende das salvaguardas do sistema operacional (contas de usuário, permissões, antivírus, backups).
+- Recomenda-se manter o sistema atualizado e realizar backups periódicos dos dados importantes.
+
+Terceiros e dependências
+- O Aplicativo utiliza bibliotecas de terceiros (ex.: PySide6, ReportLab) para interface e geração de PDFs. Essas bibliotecas são empacotadas no executável quando aplicável (ex.: PyInstaller) e não alteram a política de privacidade do Aplicativo.
+- Textos de licença e avisos de terceiros constam na pasta de distribuição (NOTICE / LICENSES).
+
+Direitos do titular dos dados
+- Acesso e correção: o usuário pode visualizar e editar dados diretamente no Aplicativo ou nos arquivos salvos localmente.
+- Exclusão: o usuário pode excluir entradas, preferências e arquivos exportados manualmente.
+- Portabilidade: exporte listas e relatórios via funcionalidades do Aplicativo para obter cópias dos dados.
+
+Crianças
+- O Aplicativo não é direcionado a crianças menores de 13 anos e não realiza coleta intencional de dados de menores.
+
+Alterações nesta Política
+- Esta Política poderá ser atualizada. Em caso de alteração relevante será atualizada a data no topo do documento; onde aplicável, mudanças serão informadas no Aplicativo ou na documentação de distribuição.
+
+Contato
+- Dúvidas ou solicitações relacionadas a privacidade e dados:
+  Fernando Nillsson Cidade
+  E-mail: linceu_lighthouse@outlook.com
+
+Observação final
+- Para informações adicionais sobre licenças, avisos e dependências, consulte assets/NOTICES/NOTICE_pt_BR.txt e o pacote de distribuição (LICENSE, LICENSES, NOTICE).

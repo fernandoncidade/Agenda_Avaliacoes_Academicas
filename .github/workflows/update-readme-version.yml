@@ -1,0 +1,122 @@
+name: Update Version in README
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  update-version:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Extract version from push commits
+        id: extract_version
+        shell: bash
+        run: |
+          set -euo pipefail
+          EVENT="$GITHUB_EVENT_PATH"
+          REGEX='v[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+'
+
+          echo "=== DEBUG: inspecting push payload ==="
+          jq -r '.head_commit.message // "NO_HEAD_COMMIT_MESSAGE"' "$EVENT" || true
+
+          VERSION=""
+
+          # 1) tentativas no head_commit
+          HEAD_MSG=$(jq -r '.head_commit.message // ""' "$EVENT")
+          if echo "$HEAD_MSG" | grep -oE "$REGEX" >/dev/null; then
+            VERSION=$(echo "$HEAD_MSG" | grep -oE "$REGEX" | tail -1)
+          fi
+
+          # 2) se não achou no head, procurar no array de commits (do mais recente para o mais antigo)
+          if [ -z "$VERSION" ]; then
+            while IFS= read -r msg; do
+              if echo "$msg" | grep -oE "$REGEX" >/dev/null; then
+                VERSION=$(echo "$msg" | grep -oE "$REGEX" | tail -1)
+                break
+              fi
+            done < <(jq -r '.commits | reverse | .[].message' "$EVENT")
+          fi
+
+          # 3) fallback: procurar no histórico git recente
+          if [ -z "$VERSION" ]; then
+            if git log -20 --pretty=%B | grep -oE "$REGEX" >/dev/null; then
+              VERSION=$(git log -20 --pretty=%B | grep -oE "$REGEX" | head -1)
+            fi
+          fi
+
+          if [ -n "$VERSION" ]; then
+            echo "Version found: $VERSION"
+            echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+            echo "has_version=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "No version pattern found in push"
+            echo "has_version=false" >> "$GITHUB_OUTPUT"
+          fi
+      
+      - name: Debug - Show current README versions
+        if: steps.extract_version.outputs.has_version == 'true'
+        run: |
+          echo "=== Current versions in README.md ==="
+          grep -n -E 'v[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+' README.md || echo "No versions found"
+          echo "====================================="
+      
+      - name: Update README.md
+        if: steps.extract_version.outputs.has_version == 'true'
+        run: |
+          set -euo pipefail
+          VERSION="${{ steps.extract_version.outputs.version }}"
+          echo "Updating README.md with version $VERSION"
+
+          cp README.md README.md.bak
+          
+          BEFORE_COUNT=$(grep -o -E 'v[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+' README.md | wc -l || true)
+          echo "Found $BEFORE_COUNT version patterns before replacement"
+
+          # Substituir qualquer vX.X.X.X pelo $VERSION
+          sed -i -E "s/v[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/$VERSION/g" README.md
+          
+          AFTER_COUNT=$(grep -o -E "$VERSION" README.md | wc -l || true)
+          echo "Found $AFTER_COUNT occurrences of $VERSION after replacement"
+
+          echo "=== Changes made ==="
+          diff -u README.md.bak README.md || true
+          echo "===================="
+
+          rm README.md.bak
+          echo "README.md updated with version $VERSION"
+      
+      - name: Check for changes
+        if: steps.extract_version.outputs.has_version == 'true'
+        id: check_changes
+        run: |
+          if git diff --quiet README.md; then
+            echo "No changes detected in README.md"
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "Changes detected in README.md:"
+            git diff README.md
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Commit and push changes
+        if: steps.extract_version.outputs.has_version == 'true' && steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          VERSION="${{ steps.extract_version.outputs.version }}"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add README.md
+          git commit -m "chore: update version to $VERSION in README.md [skip ci]"
+          git pull --rebase
+          git push

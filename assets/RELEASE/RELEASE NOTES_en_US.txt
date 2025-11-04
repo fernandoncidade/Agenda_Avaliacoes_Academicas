@@ -1,0 +1,52 @@
+RELEASE NOTES: Version: 0.0.1.0
+October 09, 2025
+
+First public release — ACADEMIC ASSESSMENTS SCHEDULE
+
+Summary:
+This is the first public release of the Academic Assessments Schedule application, a lightweight graphical utility for Windows developed in Python with PySide6. Its purpose is to consolidate, organize and present dates of assessment activities (exams, assignments, presentations, etc.) in a single chronological view, with export and customization options.
+
+Implemented:
+- Registration of assessment activities with fields: course, syllabus, semester, subject, class, assessment type, sequence and date.
+- Consolidated chronological view and automatic sorting by date.
+- Color highlighting for quick identification of subjects/patterns.
+- PDF export of activity lists (ReportLab).
+- Individual and batch editing of entries; selective deletion.
+- Persistence of preferences and local data in JSON in the user's directory (%APPDATA% on Windows).
+- Multilingual interface (Portuguese pt_BR / English en_US) with runtime switching.
+- "About" window with history, licenses, notices and privacy policy loaded from included resources.
+- Prepared for packaging as a Windows executable (builds with PyInstaller supported).
+
+How to install / run:
+1. Install dependencies (for development):
+   pip install -r requirements.txt
+2. Run (development mode):
+   python Interface_Grafica.py
+Note: the executable produced for distribution does not require separate installation of Python dependencies.
+
+How to verify (quick checks):
+- Open the application.
+- Register some complete activities (fill all fields).
+- Verify chronological ordering and color highlighting.
+- Export the list to PDF and confirm the generated file in the chosen location.
+- Switch the language to English and confirm translated texts in the interface and messages.
+
+Privacy and storage:
+- All user data is kept locally; the standard executable does not send automatic telemetry.
+- See assets/PRIVACY_POLICY/Privacy_Policy_pt_BR.txt for details.
+
+Known limitations (initial):
+- Cloud import/integration not implemented.
+- Advanced synchronization and multi‑user features are not present in this initial release.
+
+License and notices:
+- Project licensed under MIT (see LICENSE file).
+- Third‑party components and their licenses are listed in assets/NOTICES/NOTICE_pt_BR.txt and requirements.txt.
+
+Contacts / support:
+- Author: Fernando Nillsson Cidade
+- Email: linceu_lighthouse@outlook.com
+- Bug reports and contributions: open an issue in the project repository.
+
+Final notes:
+- This release prioritizes stability and simplicity. Future releases will include usability improvements, advanced filters and additional import/export options.

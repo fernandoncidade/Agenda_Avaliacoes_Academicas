@@ -1,0 +1,13 @@
+History, Justification and Motivation for Development
+
+At the beginning, the need was simple and practical: tired of opening multiple calendars, spreadsheets and messages to find out when each exam or assignment would take place, the idea arose to gather all the semester's important dates in a single accessible and organized place. The first version was born as a draft — a manual list that already saved time — but it quickly became clear that automation would make this task exponentially more efficient.
+
+The purpose of the ACADEMIC ASSESSMENTS SCHEDULE application has been, from the start, to save time and reduce stress for students and teachers when checking assessment dates. By consolidating activities from all enrolled courses in the semester into a single visual and exportable file, the user gains a clear chronological view: from the nearest activity to the most distant, enabling planning and prioritization with just a few clicks.
+
+To improve rapid identification, color distinction was implemented — each course or activity pattern can receive an associated color, making visual recognition immediate even in long lists. Integrated translation (pt_BR / en_US) expands the application's reach, serving multilingual contexts and facilitating use in international or bilingual academic environments.
+
+In addition, features such as PDF export, filters, batch editing, and automatic date sorting transform the small initial utility into a robust tool for managing the academic calendar. Configuration persistence and the ability to package the app as an executable make it practical to use and ready for distribution without manual dependencies.
+
+The creative justification that guided development was this: transform the temporal chaos of assessments into an ordered narrative of the semester — a "map of academic battles" that allows the user to plan their victories in advance. Each color, each entry and each export represent an effort to give time back to the user, reduce anxiety, and increase study efficiency and organization.
+
+In short, this project was born from a common frustration and evolved into an elegant and practical solution: automating the collection, organization and presentation of assessment dates so the semester ceases to be a maze of deadlines and becomes a clear, navigable route toward academic success.

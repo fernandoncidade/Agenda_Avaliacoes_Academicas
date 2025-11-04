@@ -1,0 +1,57 @@
+Privacy Policy - ACADEMIC ASSESSMENTS SCHEDULE
+Last updated: October 09, 2025
+Version: 0.0.1.0
+
+Purpose
+- This Policy describes how the ACADEMIC ASSESSMENTS SCHEDULE ("App" or "Software") collects, stores, processes and protects information within the user's environment. The application is designed to operate locally, without automatic telemetry by default.
+
+Scope and principles
+- Local operation and minimization: all primary data remains on the user's device; only data strictly necessary for functionality (recording, organization, export and persistence of preferences) is processed.
+- Transparency and control: the user retains full control over data entered, imported and exported.
+
+Data processed
+- Activity data: titles, descriptions, assessment type, subject, course, semester, class, sequence and dates of activities entered by the user.
+- Preferences and settings: language, color mode, color mappings, local lists and other options stored in configuration files (JSON).
+- Generated/selected files: exports (for example PDF), import files and any files the user chooses to open or save via the App.
+- Local logs (optional): runtime or error logs may be written locally if the feature is enabled for diagnostics.
+
+Storage and retention
+- Storage location: data and settings are saved in the user's persistent directory (for example, %APPDATA% on Windows). The exact path is determined by the operating system.
+- Retention: data remains until the user deletes it; the user may manually remove preferences, lists and exports at any time.
+- Exports: exported files (PDF, CSV, etc.) are saved to the location chosen by the user at the time of export.
+
+Transmission and sharing
+- No default transmission: the standard executable does not automatically transmit data to external servers.
+- Explicit sharing: any sending of data to third parties (e.g., sharing a PDF) occurs only by direct action of the user.
+- Optional integrations: integrations that involve data transmission (if implemented in the future) will be disclosed in advance and require explicit consent.
+
+Legal basis (LGPD)
+- Local data processing is carried out to perform functionalities requested by the user. As the App operates locally, the user retains direct control over their data.
+- If the Software offers features that transmit data to third parties, such operations will be described separately with legal bases and consent mechanisms in accordance with LGPD.
+
+Security
+- The App adopts basic practices for secure writing of local files; final protection depends on operating system safeguards (user accounts, permissions, antivirus, backups).
+- It is recommended to keep the system updated and perform regular backups of important data.
+
+Third parties and dependencies
+- The App uses third‑party libraries (e.g., PySide6, ReportLab) for the interface and PDF generation. These libraries are packaged into the executable when applicable (e.g., PyInstaller) and do not change the App's privacy policy.
+- Third‑party license texts and notices are included in the distribution folder (NOTICE / LICENSES).
+
+Data subject rights
+- Access and correction: the user can view and edit data directly in the App or in files saved locally.
+- Deletion: the user can manually delete entries, preferences and exported files.
+- Portability: export lists and reports via the App features to obtain copies of the data.
+
+Children
+- The App is not intended for children under 13 years of age and does not intentionally collect data from minors.
+
+Changes to this Policy
+- This Policy may be updated. If a material change occurs, the date at the top of the document will be updated; where applicable, changes will be communicated in the App or in the distribution documentation.
+
+Contact
+- Questions or requests related to privacy and data:
+  Fernando Nillsson Cidade
+  Email: linceu_lighthouse@outlook.com
+
+Final note
+- For additional information about licenses, notices and dependencies, consult assets/NOTICES/NOTICE_pt_BR.txt and the distribution package (LICENSE, LICENSES, NOTICE).

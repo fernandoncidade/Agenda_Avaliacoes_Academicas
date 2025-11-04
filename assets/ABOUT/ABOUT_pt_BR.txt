@@ -1,0 +1,55 @@
+AGENDA DE AVALIAÇÕES ACADÊMICAS
+Versão: 0.0.1.0
+Autor: Fernando Nillsson Cidade
+
+Resumo:
+A Agenda de Avaliações Acadêmicas é um utilitário gráfico leve para Windows desenvolvido em Python com PySide6. Seu objetivo principal é consolidar, organizar e apresentar as datas de atividades avaliativas (provas, testes, trabalhos, apresentações etc.) de todas as disciplinas matriculadas no semestre em um único local acessível e visual. A interface prioriza rapidez de consulta e clareza temporal, exibindo as atividades em ordem cronológica — da mais próxima à mais distante — e oferecendo ferramentas para exportação, filtragem e personalização visual.
+
+Funcionalidades principais:
+- Cadastro de atividades avaliativas com campos: curso, ementa, semestre, disciplina, turma, tipo de avaliação, sequência e data.
+- Visão cronológica consolidada de todas as atividades.
+- Destaque por cores para fácil identificação de disciplinas/padrões de atividade.
+- Suporte multilíngue: Português (pt_BR) e Inglês (en_US) com troca em tempo de execução.
+- Exportação para PDF das listas de atividades.
+- Edição individual e em lote de entradas; exclusão selecionada.
+- Filtros e ordenação automática por data.
+- Persistência de configurações do usuário (idioma, modo de cores, preferências).
+- Preparado para empacotamento como executável Windows (distribuição sem necessidade de instalação manual de dependências Python).
+
+Arquitetura e integração:
+- GUI: PySide6 (Qt) com widgets personalizados para seleção dinâmica de cursos, ementas, semestres e disciplinas.
+- Módulos principais:
+  - Gerenciador_Atividades: lógica de criação, listagem, edição, exclusão e exportação das atividades.
+  - Banco_Dados: provê listas e mapeamentos de cursos, turmas e tipos de avaliação, permitindo tradução e configuração por idioma.
+- Persistência: armazenamento de preferências em arquivos JSON no diretório persistente do usuário (por exemplo, AppData).
+- Operações que exigem biblioteca externa (ex.: geração de PDF) usam bibliotecas Python padrão do projeto (ReportLab para PDF).
+
+Privacidade e armazenamento de dados:
+- Todos os dados do usuário (atividades e configurações) são mantidos localmente no diretório persistente.
+- Nenhuma informação é transmitida automaticamente para servidores externos pelo aplicativo.
+- Arquivos exportados são gravados na localização escolhida pelo usuário.
+
+Como usar (resumo rápido):
+1. Abra o aplicativo.
+2. Selecione curso, ementa e semestre para carregar disciplinas disponíveis.
+3. Preencha os campos de tipo, sequência, data, disciplina e turma; clique em "Registrar" para salvar.
+4. Utilize os botões para editar, excluir ou exportar as atividades para PDF.
+5. Altere o idioma ou modo de cores nas opções do menu conforme necessário.
+
+Distribuição e empacotamento:
+- O projeto é compatível com empacotadores (ex.: PyInstaller) para gerar executáveis Windows que incluem recursos e traduções.
+- Quando distribuído como executável, o usuário final não precisa instalar dependências Python.
+
+Licença:
+- Projeto licenciado sob MIT (ver arquivo LICENSE).
+- Componentes de terceiros (se houver) mantêm suas licenças próprias; textos de licenças e avisos são disponibilizados na pasta de licenças do instalador/empacotamento.
+
+Contatos e suporte:
+- Autor: Fernando Nillsson Cidade
+- Relatos de bugs, sugestões e contribuições: abrir issue ou pull request no repositório do projeto.
+
+Histórico e motivação:
+- Motivado pela necessidade prática de reduzir o tempo e a fricção ao consultar prazos avaliativos, o aplicativo nasceu para transformar um processo disperso (múltiplas agendas, planilhas e mensagens) em uma visão única, ordenada e automática do semestre. A distinção por cores, a tradução integrada e a exportação em PDF foram implementadas para tornar a ferramenta útil em diferentes contextos acadêmicos e promover melhor planejamento e redução de ansiedade dos usuários.
+
+Notas finais:
+- Para desenvolvedores interessados em estender o projeto, consulte README.md e o código-fonte para detalhes sobre a estrutura dos módulos, pontos de extensão e padrões de persistência.

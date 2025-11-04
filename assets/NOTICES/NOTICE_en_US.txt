@@ -1,0 +1,67 @@
+Third‑Party Software Licenses and Attributions Notice
+Project: ACADEMIC ASSESSMENTS SCHEDULE
+Document version: October 09, 2025
+
+This document lists the main third‑party libraries and components used in the ACADEMIC ASSESSMENTS SCHEDULE project and provides references to their licenses. Its purpose is to meet distribution requirements and offer clear information to users, integrators and reviewers. Project dependencies are listed in the requirements.txt file included in the repository/installer.
+
+General notice
+- The final product may be distributed as a Windows executable (build produced with tools such as Nuitka). Python libraries listed in requirements.txt are packaged into the binary according to the build.
+- Full license texts and third‑party copyright notices are provided in the distribution/installer package (LICENSE, LICENSES, NOTICE files or equivalent directory). To obtain source code copies required by certain licenses (for example LGPL), contact the author as indicated below.
+
+Main dependencies (references and licenses)
+- PySide6 / Shiboken6 — Qt for Python (LGPL v3)
+  https://github.com/qt/pyside
+  https://www.gnu.org/licenses/lgpl-3.0.html.en
+
+- ReportLab — PDF generation library (license and terms as per ReportLab project)
+  https://www.reportlab.com/
+  https://www.reportlab.com/dev/license/
+
+Other notable dependencies (varied licenses: MIT / Apache / BSD / compatible)
+- altgraph
+- autocommand
+- backports.tarfile
+- chardet / charset-normalizer
+- importlib_metadata / importlib_resources
+- jaraco.collections / jaraco.context / jaraco.functools / jaraco.text
+- more-itertools
+- packaging
+- pefile
+- pillow
+- platformdirs
+- tomli
+- zipp
+See requirements.txt for specific versions and PyPI links:
+https://pypi.org/project/<package-name>
+
+License handling and full texts
+- Full license texts for third‑party components, copyright notices and any required notices are included in the distribution/installer package (LICENSE, LICENSES, NOTICE files or equivalent).
+- If it is necessary to provide source code for components licensed under the LGPL (or similar licenses that require source availability), follow the instructions of each license — contact the author to coordinate provision of sources or relevant links.
+
+Statement on data transmission and privacy
+- The project's standard executable does not send automatic telemetry to external servers.
+- All user data (for example, activity lists, preference JSON files, PDF exports) is stored locally in the user's persistent directory (for example, %APPDATA% on Windows).
+- Any optional integrations that involve data transmission will be documented and will require explicit user consent.
+- For details on personal data handling and privacy, consult the Privacy Policy included in the package (assets/PRIVACY_POLICY/Privacy_Policy_pt_BR.txt).
+
+Notes on library replacement (when applicable)
+- Dynamically linked libraries (e.g., PySide6 / Shiboken6) may, in specific builds, be replaced by compatible versions following packaging instructions. Replacement must comply with license obligations (for example, providing source when required by the LGPL).
+- Any modification or replacement of libraries in distributed binaries must be accompanied by the necessary license notices and texts.
+
+Obtaining full license texts
+- Useful links:
+  - LGPL v3: https://www.gnu.org/licenses/lgpl-3.0.html.en
+  - MIT: https://opensource.org/licenses/MIT
+  - BSD: https://opensource.org/licenses
+  - Apache 2.0: https://www.apache.org/licenses/LICENSE-2.0
+  - ReportLab: https://www.reportlab.com/dev/license/
+
+Contact for source code requests, license clarifications or notices
+- Project author / responsible:
+  Fernando Nillsson Cidade
+  Email: linceu_lighthouse@outlook.com
+
+Final remarks
+- This document has been adapted to reflect the dependencies and structure of the ACADEMIC ASSESSMENTS SCHEDULE project (see README.md, ABOUT and requirements.txt).
+- Keep backups of your data before updating, replacing libraries or modifying the executable.
+- If you require a full list with exact versions of each license included in the installer, consult the LICENSES directory / LICENSE / NOTICE files included in the distribution package or request them via the contact above.

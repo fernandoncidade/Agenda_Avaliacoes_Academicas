@@ -1,0 +1,66 @@
+LICENÇA DE USO DE USUÁRIO FINAL - AGENDA DE AVALIAÇÕES ACADÊMICAS
+Versão 0.0.1.0, 09 de Outubro de 2025
+
+Copyright (c) 2025 Fernando Nillsson Cidade. Todos os direitos reservados.
+
+Ao instalar, copiar ou utilizar o Software distribuído como executável, você concorda em estar vinculado pelos termos desta Licença. Se você não concordar com os termos desta Licença, não instale nem use o Software.
+
+1. DEFINIÇÕES
+   "Licenciador": Fernando Nillsson Cidade, titular dos direitos autorais do Software.
+   "Software": AGENDA DE AVALIAÇÕES ACADÊMICAS — utilitário gráfico para gerenciamento de datas de avaliações acadêmicas, incluindo o executável distribuído, recursos embarcados e documentação associada.
+   "Licenciado" ou "Você": a pessoa física ou jurídica que instala ou utiliza o Software.
+
+2. AMBIENTE DE DISTRIBUIÇÃO
+   O Software é fornecido como instalador/executável para Windows. O usuário final não precisa instalar Python ou bibliotecas adicionais para executar o Software; dependências listadas em requirements.txt são empacotadas no binário conforme a build.
+
+3. CONCESSÃO DE LICENÇA
+   Sujeito aos termos desta Licença, o Licenciador concede ao Licenciado uma licença limitada, não exclusiva, intransferível e revogável para usar o Software conforme a modalidade adquirida (gratuita ou comercial).
+
+4. RESTRIÇÕES DE USO
+   O Licenciado não poderá:
+   a) Reproduzir, distribuir, sublicenciar, alugar, arrendar, emprestar, vender ou transferir o executável, exceto quando autorizado por contrato comercial separado;
+   b) Realizar engenharia reversa, descompilar, desmontar ou tentar extrair código‑fonte do executável, exceto quando expressamente permitido por lei aplicável;
+   c) Remover ou alterar avisos de propriedade intelectual ou marca presentes no Software;
+   d) Usar o Software para fins ilícitos ou em desacordo com regulamentações aplicáveis.
+
+5. FUNCIONALIDADES E ARMAZENAMENTO DE DADOS
+   - O Software armazena localmente dados e configurações do usuário (por exemplo, arquivos JSON de preferências, listas de atividades, exportações PDF) no diretório persistente do usuário (por exemplo, %APPDATA% no Windows).
+   - Não há transmissão automática de dados a servidores externos no executável padrão; quaisquer integrações de telemetria ou sincronização serão explicitamente informadas e requererão consentimento do usuário.
+   - O Software oferece exportação para PDF e outras rotinas de exportação conforme a build. Arquivos exportados são salvos na localização escolhida pelo usuário.
+
+6. COMPONENTES DE TERCEIROS
+   - O Software pode incorporar componentes de terceiros (ex.: PySide6, ReportLab, shiboken6, entre outros listados em requirements.txt). Esses componentes estão sujeitos às suas respectivas licenças.
+   - Os textos de licença e avisos de terceiros são fornecidos no pacote de distribuição (NOTICE, LICENSES).
+
+7. ATUALIZAÇÕES E SUPORTE
+   - O Licenciador pode fornecer atualizações e correções a seu critério. Termos de suporte e atualizações dependem da modalidade de licença comercial quando aplicável.
+   - Atualizações automáticas, quando incluídas, serão descritas na documentação de distribuição; o usuário poderá optar por aceitar ou recusar a instalação.
+
+8. GARANTIA LIMITADA E LIMITAÇÃO DE RESPONSABILIDADE
+   - O Software é fornecido "NO ESTADO EM QUE SE ENCONTRA", sem garantias expressas ou implícitas, salvo as garantias legais aplicáveis.
+   - Na extensão permitida por lei, o Licenciador não será responsável por danos indiretos, especiais, incidentais, consequenciais ou lucros cessantes decorrentes do uso ou impossibilidade de uso do Software.
+   - Quando houver responsabilidade direta admitida por lei, a indenização estará limitada ao valor efetivamente pago pelo Software (se aplicável) ou a R$ 5,00, o que for maior.
+
+9. PRIVACIDADE E PROTEÇÃO DE DADOS
+   - O Licenciador declara que o executável padrão não coleta telemetria automática. Dados pessoais tratados pelo Software serão processados em conformidade com a legislação aplicável (ex.: LGPD) e conforme a Política de Privacidade incluída no pacote (assets/PRIVACY_POLICY/Privacy_Policy_pt_BR.txt).
+   - É responsabilidade do usuário/organização manter backups dos seus dados (exportações, arquivos de configuração).
+
+10. RESCISÃO
+    - Esta Licença poderá ser rescindida por violação de suas cláusulas. Após rescisão, o Licenciado deve cessar o uso e remover o executável conforme aplicável.
+    - Em caso de término por culpa do Licenciado, os valores pagos não serão necessariamente reembolsados, salvo acordo em contrário.
+
+11. LEI APLICÁVEL E FORO
+    - Esta Licença será regida pelas leis brasileiras.
+    - Para dirimir litígios, fica eleito o foro da Comarca de São José dos Pinhais, Estado do Paraná, Brasil.
+
+12. DECLARAÇÕES ADICIONAIS
+    - Inclusão em lojas digitais ou adaptações de distribuição poderão exigir condições adicionais impostas pelos respectivos distribuidores; tais exigências não alteram automaticamente esta Licença sem acordo escrito.
+    - Serviços adicionais (customização, integração, treinamento) serão objeto de contrato separado.
+
+13. Acordo integral
+    - Esta Licença, juntamente com a Política de Privacidade e as licenças de terceiros incluídas no instalador, constitui o acordo completo entre as partes com relação ao Software.
+
+Contato para informações e suporte: conforme indicado no instalador/distribuição.
+Autor / Contato: Fernando Nillsson Cidade — E-mail: linceu_lighthouse@outlook.com
+
+Data: 09 de Outubro de 2025

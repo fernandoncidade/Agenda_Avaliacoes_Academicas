@@ -1,0 +1,83 @@
+COMMERCIAL LICENSE AGREEMENT - ACADEMIC ASSESSMENTS SCHEDULE
+
+This Commercial License Agreement ("Agreement") is entered into by and between:
+
+LICENSOR: Fernando Nillsson Cidade, hereinafter referred to as "LICENSOR".
+and
+LICENSEE: The natural or legal person who acquires a commercial license for the ACADEMIC ASSESSMENTS SCHEDULE software, hereinafter referred to as "LICENSEE".
+
+This Agreement complements the terms of the End User License Agreement (EULA) and establishes specific conditions for commercial use and redistribution.
+
+1. PURPOSE
+1.1 The LICENSOR grants the LICENSEE a license to use the software "ACADEMIC ASSESSMENTS SCHEDULE" ("Software"), in accordance with the purchased license type.
+1.2 The Software is a graphical utility for Windows developed in Python with PySide6, intended to consolidate, organize and present dates of assessment activities. Commercial distribution is normally provided in compiled/executable form.
+
+2. LICENSE TYPES
+2.1 Individual License
+  a) Installation on up to 2 (two) devices owned by the same LICENSEE.
+  b) Updates and bug fixes for 1 (one) year.
+  c) Basic technical support via email for 1 (one) year.
+2.2 Institutional License (Small Institutions)
+  a) Installation on up to 10 (ten) workstations within the same organization.
+  b) Updates for 1 (one) year; priority email support.
+  c) Possibility of minor text/branding customizations, where applicable.
+2.3 Corporate / Campus License
+  a) Unlimited installations subject to commercial agreement.
+  b) Updates and support defined in contract (SLA) and options for custom integration.
+
+3. PRICE AND PAYMENT
+3.1 Prices and payment terms are defined by commercial proposal or current price list.
+3.2 Payments via bank slip (boleto), credit card, bank transfer or PIX, unless otherwise agreed.
+3.3 Late payments are subject to interest and penalties as negotiated.
+
+4. TERM AND RENEWAL
+4.1 The Agreement remains in force in accordance with the purchased license type and paid period.
+4.2 Renewal of updates and support requires additional payment; use of the executable is not conditioned on renewal, unless otherwise provided in the contract.
+
+5. SUPPORT AND UPDATES
+5.1 Support and updates are limited to the version distributed as an executable, according to the purchased license type.
+5.2 The LICENSOR will provide assistance for installation of the executable, guidance and correction of defects that prevent essential use.
+
+6. LIMITATIONS OF LIABILITY
+6.1 The LICENSOR shall not be liable for indirect damages, loss of profits or consequential losses.
+6.2 The LICENSEE is responsible for data backups (exports, configuration files) and for compliance with internal IT policies.
+6.3 The Software is provided "as is", except for legal warranties.
+
+7. PRIVACY AND DATA
+7.1 User data (activities and settings) are stored locally; there is no automatic transmission to external servers in the standard executable.
+7.2 Processing of personal data will comply with applicable legislation (e.g., LGPD) as described in the Privacy Policy delivered to the LICENSEE.
+
+8. ACCESSIBILITY AND COMPLIANCE FOR DIGITAL STORES
+8.1 Where applicable, accessibility documentation (e.g., MS Store / ADA declaration) accompanies the commercial distribution.
+8.2 Inclusion in digital stores does not alter the clauses of this Agreement, except where a distributor's written requirement stipulates otherwise.
+
+9. THIRD-PARTY COMPONENTS
+9.1 The Software may include third-party components (e.g., ReportLab). Licenses and notices are included in the distribution package.
+9.2 The LICENSOR will provide a list of dependencies and license texts to the LICENSEE.
+
+10. TRANSFER AND RESTRICTIONS
+10.1 The LICENSEE may not sublicense, redistribute or resell the executable without the LICENSOR's express authorization, except as permitted by the purchased license type.
+10.2 Installations beyond the permitted number constitute a contractual breach.
+
+11. TERMINATION
+11.1 Termination for material breach, non-payment or mutual agreement.
+11.2 In case of termination due to LICENSEE's fault, amounts paid will not be refunded unless otherwise agreed.
+
+12. APPLICABLE LAW AND JURISDICTION
+12.1 This Agreement is governed by Brazilian law.
+12.2 The courts of the District of São José dos Pinhais, State of Paraná, Brazil, are chosen to resolve disputes.
+
+FINAL PROVISIONS
+- Additional services (customization, integration, training) will be subject to an addendum.
+- The LICENSOR delivers the executable and resources; the LICENSEE acknowledges that no development dependencies are required to run the executable.
+
+The parties electronically sign by accepting the terms.
+
+Brazil, Paraná, São José dos Pinhais
+
+Fernando Nillsson Cidade
+______________________________
+LICENSOR
+
+______________________________
+LICENSEE
