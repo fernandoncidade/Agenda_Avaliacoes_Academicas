@@ -15,7 +15,7 @@
 
 # AGENDA DE AVALIAÇÕES ACADÊMICAS
 
-Versão: v0.0.0.0  
+Versão: v0.0.1.0  
 Autor: Fernando Nillsson Cidade
 
 ## Visão geral
@@ -95,7 +95,7 @@ Ajuste hooks e arquivos de dados conforme necessário (traduções, assets, LICE
 
 --- 
 
-Pequena nota: esta é a primeira versão pública (v0.0.0.0). O foco foi estabilidade e simplicidade; futuras versões trarão filtros avançados, importação/exportação adicionais e melhorias de usabilidade.
+Pequena nota: esta é a primeira versão pública (v0.0.1.0). O foco foi estabilidade e simplicidade; futuras versões trarão filtros avançados, importação/exportação adicionais e melhorias de usabilidade.
 
 --- 
 
@@ -108,7 +108,7 @@ Pequena nota: esta é a primeira versão pública (v0.0.0.0). O foco foi estabil
 
 # ACADEMIC ASSESSMENTS SCHEDULE
 
-Version: v0.0.0.0  
+Version: v0.0.1.0  
 Author: Fernando Nillsson Cidade
 
 ## Overview
@@ -188,7 +188,7 @@ Adjust hooks and data files as needed (translations, assets, LICENSES, NOTICE, P
 
 --- 
 
-Small note: this is the first public version (v0.0.0.0). The focus was stability and simplicity; future releases will bring advanced filters, additional import/export and usability improvements.
+Small note: this is the first public version (v0.0.1.0). The focus was stability and simplicity; future releases will bring advanced filters, additional import/export and usability improvements.
 
 --- 
 
