@@ -1,7 +1,7 @@
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import (QWidget, QLabel, QComboBox, QCalendarWidget, QTextBrowser, QVBoxLayout, QHBoxLayout, QSpacerItem, QSizePolicy)
 from source.BancoDeDados.Banco_Dados import lista_cursos, lista_turmas, lista_avaliacoes
-from utils.LogManager import LogManager
+from source.utils.LogManager import LogManager
 
 logger = LogManager.get_logger()
 

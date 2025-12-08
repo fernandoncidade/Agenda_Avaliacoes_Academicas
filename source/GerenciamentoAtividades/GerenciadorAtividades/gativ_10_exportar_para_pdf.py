@@ -6,7 +6,7 @@ from reportlab.lib.pagesizes import letter
 from reportlab.lib.units import cm
 from datetime import datetime
 from source.BancoDeDados.Banco_Dados import obter_cor_por_nome
-from utils.LogManager import LogManager
+from source.utils.LogManager import LogManager
 logger = LogManager.get_logger()
 
 def exportar_para_pdf(self):

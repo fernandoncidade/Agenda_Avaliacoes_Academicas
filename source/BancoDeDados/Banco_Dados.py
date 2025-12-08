@@ -1,5 +1,5 @@
 import re
-from utils.LogManager import LogManager
+from source.utils.LogManager import LogManager
 
 logger = LogManager.get_logger()
 
@@ -51,7 +51,7 @@ except Exception:
 
 def obter_idioma_atual():
     try:
-        from language.tr_01_gerenciadorTraducao import GerenciadorTraducao
+        from source.language.tr_01_gerenciadorTraducao import GerenciadorTraducao
         gerenciador = GerenciadorTraducao()
         return gerenciador.obter_idioma_atual()
 

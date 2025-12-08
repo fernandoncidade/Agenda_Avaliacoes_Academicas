@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import QDialog, QVBoxLayout, QCheckBox, QDialogButtonBox
 from datetime import datetime
-from utils.LogManager import LogManager
+from source.utils.LogManager import LogManager
 logger = LogManager.get_logger()
 
 def excluir_item(self):

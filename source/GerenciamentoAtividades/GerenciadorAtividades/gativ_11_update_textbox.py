@@ -1,6 +1,6 @@
 from datetime import datetime
 from source.BancoDeDados.Banco_Dados import obter_cor_por_nome
-from utils.LogManager import LogManager
+from source.utils.LogManager import LogManager
 logger = LogManager.get_logger()
 
 def update_textbox(self):

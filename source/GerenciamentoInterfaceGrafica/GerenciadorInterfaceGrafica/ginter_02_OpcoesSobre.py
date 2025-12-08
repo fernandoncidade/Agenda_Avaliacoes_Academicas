@@ -1,5 +1,5 @@
-from utils.ApplicationPathUtils import load_text_file
-from utils.LogManager import LogManager
+from source.utils.ApplicationPathUtils import load_text_file
+from source.utils.LogManager import LogManager
 logger = LogManager.get_logger()
 
 try:
@@ -14,8 +14,8 @@ try:
     https://opensource.org/license/isc-license-txt
     """
     
-    LICENSE_TEXT_PT_BR = load_text_file("EULA_pt_BR - Compression Manager.txt", folder="EULA")
-    LICENSE_TEXT_EN_US = load_text_file("EULA_en_US - Compression Manager.txt", folder="EULA")
+    LICENSE_TEXT_PT_BR = load_text_file("EULA_pt_BR.txt", folder="EULA")
+    LICENSE_TEXT_EN_US = load_text_file("EULA_en_US.txt", folder="EULA")
 
     NOTICE_TEXT_PT_BR = load_text_file("NOTICE_pt_BR.txt", folder="NOTICES")
     NOTICE_TEXT_EN_US = load_text_file("NOTICE_en_US.txt", folder="NOTICES")

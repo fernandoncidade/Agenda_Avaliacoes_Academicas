@@ -22,8 +22,8 @@ from source.GerenciamentoAtividades.GerenciadorAtividades.gativ_18_carregar_dado
 from source.GerenciamentoAtividades.GerenciadorAtividades.gativ_19_definir_modo_cores import definir_modo_cores
 from source.GerenciamentoAtividades.GerenciadorAtividades.gativ_20_obter_modo_cores import obter_modo_cores
 from source.GerenciamentoAtividades.GerenciadorAtividades.gativ_21_cor_texto_do_sistema import _cor_texto_do_sistema
-from utils.CaminhoPersistenteUtils import obter_caminho_persistente
-from utils.LogManager import LogManager
+from source.utils.CaminhoPersistenteUtils import obter_caminho_persistente
+from source.utils.LogManager import LogManager
 
 logger = LogManager.get_logger()
 

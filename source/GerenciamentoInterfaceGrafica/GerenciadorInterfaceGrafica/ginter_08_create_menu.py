@@ -1,7 +1,7 @@
 from PySide6.QtCore import QCoreApplication
 from PySide6.QtGui import QAction, QActionGroup
 from PySide6.QtWidgets import QMessageBox
-from utils.LogManager import LogManager
+from source.utils.LogManager import LogManager
 
 logger = LogManager.get_logger()
 

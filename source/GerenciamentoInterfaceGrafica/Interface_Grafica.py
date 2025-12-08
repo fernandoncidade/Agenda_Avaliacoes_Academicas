@@ -10,9 +10,9 @@ from source.GerenciamentoInterfaceGrafica.GerenciadorInterfaceGrafica.ginter_08_
 from source.GerenciamentoInterfaceGrafica.GerenciadorInterfaceGrafica.ginter_09_change_language import change_language
 from source.GerenciamentoInterfaceGrafica.GerenciadorInterfaceGrafica.ginter_10_change_color_mode import change_color_mode
 from source.GerenciamentoInterfaceGrafica.GerenciadorInterfaceGrafica.ginter_11_retranslate_ui import retranslate_ui
-from language.tr_01_gerenciadorTraducao import GerenciadorTraducao
-from utils.IconUtils import get_icon_path
-from utils.LogManager import LogManager
+from source.language.tr_01_gerenciadorTraducao import GerenciadorTraducao
+from source.utils.IconUtils import get_icon_path
+from source.utils.LogManager import LogManager
 
 logger = LogManager.get_logger()
 

@@ -1,6 +1,6 @@
 Aviso de Licenças e Atribuições de Software de Terceiros
 Projeto: AGENDA DE AVALIAÇÕES ACADÊMICAS
-Versão do documento: 09 de Outubro de 2025
+Versão 0.0.1.0, 9 de outubro de 2025
 
 Este documento lista as principais bibliotecas e componentes de terceiros utilizados no projeto AGENDA DE AVALIAÇÕES ACADÊMICAS e fornece referências às suas licenças. O objetivo é cumprir requisitos de distribuição e oferecer informações claras para usuários, integradores e revisores. As dependências do projeto estão listadas no arquivo requirements.txt incluído no repositório/instalador.
 

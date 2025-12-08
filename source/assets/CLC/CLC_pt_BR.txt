@@ -1,4 +1,6 @@
 CONTRATO DE LICENCIAMENTO COMERCIAL - AGENDA DE AVALIAÇÕES ACADÊMICAS
+Versão: 0.0.1.0
+Data: 9 de outubro de 2025
 
 Este Contrato de Licenciamento Comercial ("Contrato") é celebrado entre:
 

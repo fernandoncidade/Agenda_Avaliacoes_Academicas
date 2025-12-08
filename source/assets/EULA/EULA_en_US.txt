@@ -1,5 +1,5 @@
 END USER LICENSE AGREEMENT - ACADEMIC ASSESSMENTS SCHEDULE
-Version 0.0.1.0, October 09, 2025
+Version 0.0.1.0, October 9, 2025
 
 Copyright (c) 2025 Fernando Nillsson Cidade. All rights reserved.
 
@@ -62,5 +62,3 @@ By installing, copying or using the Software distributed as an executable, you a
 
 Contact for information and support: as indicated in the installer/distribution.
 Author / Contact: Fernando Nillsson Cidade — Email: linceu_lighthouse@outlook.com
-
-Date: October 09, 2025

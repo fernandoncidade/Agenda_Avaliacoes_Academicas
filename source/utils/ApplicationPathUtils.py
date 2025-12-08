@@ -1,6 +1,6 @@
 import os
 import sys
-from utils.LogManager import LogManager
+from source.utils.LogManager import LogManager
 logger = LogManager.get_logger()
 
 def get_app_base_path():

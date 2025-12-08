@@ -5,9 +5,9 @@ import winreg
 from PySide6.QtCore import Qt, QCoreApplication
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QMessageBox
-from utils.CaminhoPersistenteUtils import obter_caminho_persistente
-from utils.IconUtils import get_icon_path
-from utils.LogManager import LogManager
+from source.utils.CaminhoPersistenteUtils import obter_caminho_persistente
+from source.utils.IconUtils import get_icon_path
+from source.utils.LogManager import LogManager
 logger = LogManager.get_logger()
 
 def get_text(text):

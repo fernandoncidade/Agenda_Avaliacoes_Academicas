@@ -1,7 +1,7 @@
 import os
 import json
-from utils.LogManager import LogManager
-from utils.CaminhoPersistenteUtils import obter_caminho_persistente
+from source.utils.LogManager import LogManager
+from source.utils.CaminhoPersistenteUtils import obter_caminho_persistente
 logger = LogManager.get_logger()
 
 def definir_modo_cores(self, modo):

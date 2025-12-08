@@ -1,4 +1,4 @@
-from utils.LogManager import LogManager
+from source.utils.LogManager import LogManager
 logger = LogManager.get_logger()
 
 def _cor_texto_do_sistema(self):

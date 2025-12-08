@@ -1,6 +1,6 @@
 Third‑Party Software Licenses and Attributions Notice
 Project: ACADEMIC ASSESSMENTS SCHEDULE
-Document version: October 09, 2025
+Version 0.0.1.0, October 9, 2025
 
 This document lists the main third‑party libraries and components used in the ACADEMIC ASSESSMENTS SCHEDULE project and provides references to their licenses. Its purpose is to meet distribution requirements and offer clear information to users, integrators and reviewers. Project dependencies are listed in the requirements.txt file included in the repository/installer.
 

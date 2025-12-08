@@ -1,6 +1,6 @@
 from PySide6.QtCore import QCoreApplication, QLocale
 from source.BancoDeDados.Banco_Dados import obter_cursos, obter_turmas, obter_avaliacoes
-from utils.LogManager import LogManager
+from source.utils.LogManager import LogManager
 
 logger = LogManager.get_logger()
 

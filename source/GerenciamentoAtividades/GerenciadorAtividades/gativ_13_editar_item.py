@@ -3,7 +3,7 @@ from PySide6.QtWidgets import QDialog, QVBoxLayout, QCheckBox, QDialogButtonBox
 from PySide6.QtCore import QCoreApplication
 from datetime import datetime
 from source.BancoDeDados.Banco_Dados import obter_avaliacoes, obter_turmas
-from utils.LogManager import LogManager
+from source.utils.LogManager import LogManager
 logger = LogManager.get_logger()
 
 def editar_item(self):
@@ -12,7 +12,7 @@ def editar_item(self):
         dialog = QDialog()
 
         try:
-            from utils.IconUtils import get_icon_path
+            from source.utils.IconUtils import get_icon_path
             from PySide6.QtGui import QIcon
             icon_path = get_icon_path("ReviewsManager.ico")
             if icon_path and os.path.exists(icon_path):

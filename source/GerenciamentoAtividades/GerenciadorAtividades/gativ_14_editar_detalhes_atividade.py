@@ -2,9 +2,9 @@ import os
 from PySide6.QtWidgets import QDialog, QVBoxLayout, QLabel, QComboBox, QCalendarWidget, QDialogButtonBox, QMessageBox
 from PySide6.QtCore import QDate, QLocale, QCoreApplication
 from PySide6.QtGui import QIcon
-from utils.IconUtils import get_icon_path
+from source.utils.IconUtils import get_icon_path
 from source.BancoDeDados.Banco_Dados import obter_avaliacoes, lista_avaliacoes, obter_turmas, lista_turmas, obter_estrutura_cursos, traduzir_curso, traduzir_ementa, traduzir_semestre, obter_disciplinas
-from utils.LogManager import LogManager
+from source.utils.LogManager import LogManager
 logger = LogManager.get_logger()
 
 def editar_detalhes_atividade(self, atividade):
