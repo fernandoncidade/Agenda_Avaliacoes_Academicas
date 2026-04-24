@@ -95,6 +95,56 @@
     </message>
 
     <message>
+      <source>Excluir Item</source>
+      <translation>Delete Item</translation>
+    </message>
+
+    <message>
+      <source>Itens personalizados:</source>
+      <translation>Custom items:</translation>
+    </message>
+
+    <message>
+      <source>Nenhum item personalizado encontrado.</source>
+      <translation>No custom item found.</translation>
+    </message>
+
+    <message>
+      <source>Confirmar exclusão</source>
+      <translation>Confirm deletion</translation>
+    </message>
+
+    <message>
+      <source>Deseja remover o item selecionado?</source>
+      <translation>Do you want to remove the selected item?</translation>
+    </message>
+
+    <message>
+      <source>Sim</source>
+      <translation>Yes</translation>
+    </message>
+
+    <message>
+      <source>Não</source>
+      <translation>No</translation>
+    </message>
+
+    <message>
+      <source>Item excluído</source>
+      <translation>Item deleted</translation>
+    </message>
+
+    <message>
+      <source>O item foi excluído.</source>
+      <translation>The item was deleted.</translation>
+    </message>
+
+    <message>
+      <source>Não foi possível excluir o item.</source>
+      <translation>The item could not be deleted.</translation>
+    </message>
+
+    <message>
       <source>Idiomas</source>
       <translation>Languages</translation>
     </message>

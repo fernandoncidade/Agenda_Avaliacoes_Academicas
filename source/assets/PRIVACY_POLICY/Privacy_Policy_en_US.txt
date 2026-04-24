@@ -1,6 +1,6 @@
 Privacy Policy - ACADEMIC ASSESSMENTS SCHEDULE
-Last updated: October 9, 2025
-Version: 0.0.1.0
+Last updated: April 23, 2026
+Version: 2026.4.23.0
 
 Purpose
 - This Policy describes how the ACADEMIC ASSESSMENTS SCHEDULE ("App" or "Software") collects, stores, processes and protects information within the user's environment. The application is designed to operate locally, without automatic telemetry by default.

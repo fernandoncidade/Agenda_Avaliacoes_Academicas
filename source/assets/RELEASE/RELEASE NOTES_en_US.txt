@@ -1,3 +1,26 @@
+RELEASE NOTES: Version: 2026.4.23.0  
+April 23, 2026
+
+Summary:  
+A new subject, "Social Engineering," has been implemented in the Civil Engineering program. This subject addresses the social aspects related to engineering, including the interaction between engineers and communities, professional ethics, and the social impact of engineering projects.
+
+Details:  
+- The subject "Social Engineering" has been added to the Civil Engineering curriculum.  
+- The subject code is TH045.
+
+Addendum for this version:
+- The Course, Syllabus, Semester, Subject, Class, Assessment Activity Type and Activity Sequence fields now accept user-entered values in addition to the predefined values.
+- New custom values are stored locally in listas.db, with dedicated tables for courses, syllabi, semesters, subjects, classes, activity types and sequences.
+- The application's built-in lists are now automatically combined with custom values while preserving the relationship between course, syllabus, semester and subject.
+- Added Settings > Delete Item, with per-list submenus that allow custom items saved in listas.db to be removed directly.
+- Removing a custom item now shows a confirmation prompt before deletion and a success message after deletion.
+- The deletion confirmation buttons are now correctly translated as Sim/Não in Portuguese and Yes/No in English.
+- Translation .ts files were updated and .qm files were recompiled to include the new interface messages.
+- Combo box updates were stabilized to avoid intermediate signal triggers while dependent lists are reloaded.
+- Added the helper script mocks/clear_pycache.ps1 to remove project __pycache__ directories.
+
+_________________________________________________
+
 RELEASE NOTES: Version: 0.0.1.0
 October 09, 2025
 

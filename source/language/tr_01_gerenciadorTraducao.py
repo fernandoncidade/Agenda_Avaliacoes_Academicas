@@ -7,6 +7,40 @@ from source.utils.LogManager import LogManager
 
 logger = LogManager.get_logger()
 
+def obter_diretorio_traducoes():
+    try:
+        candidatos = []
+
+        if hasattr(sys, '_MEIPASS'):
+            candidatos.append(os.path.join(sys._MEIPASS, "language", "translations"))
+
+        if getattr(sys, 'frozen', False):
+            exe_dir = os.path.dirname(sys.executable)
+            candidatos.extend([
+                os.path.join(exe_dir, "language", "translations"),
+                os.path.join(exe_dir, "source", "language", "translations"),
+                os.path.join(exe_dir, "_internal", "language", "translations"),
+                os.path.join(exe_dir, "_internal", "source", "language", "translations"),
+            ])
+
+        source_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+        project_dir = os.path.dirname(source_dir)
+        candidatos.extend([
+            os.path.join(source_dir, "language", "translations"),
+            os.path.join(project_dir, "language", "translations"),
+            os.path.join(project_dir, "source", "language", "translations"),
+        ])
+
+        for caminho in candidatos:
+            if os.path.isdir(caminho):
+                return caminho
+
+        return candidatos[0]
+
+    except Exception as e:
+        logger.error(f"Erro ao obter diretório de traduções: {e}", exc_info=True)
+        return os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), "language", "translations")
+
 
 class GerenciadorTraducao(QObject):
     idioma_alterado = Signal(str)
@@ -24,10 +58,7 @@ class GerenciadorTraducao(QObject):
                 "en_US": "English (United States)"
             }
 
-            self.dir_traducoes = os.path.join(
-                getattr(sys, '_MEIPASS', os.path.dirname(os.path.dirname(os.path.realpath(__file__)))),
-                "language", "translations"
-            )
+            self.dir_traducoes = obter_diretorio_traducoes()
 
             os.makedirs(self.dir_traducoes, exist_ok=True)
             self.carregar_configuracao_idioma()

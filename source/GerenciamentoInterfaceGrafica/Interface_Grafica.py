@@ -114,23 +114,53 @@ class InterfaceGerenciadorAtividades(QMainWindow):
         except Exception as e:
             logger.critical(f"Erro fatal ao atualizar textbox: {e}", exc_info=True)
 
-    def update_ementa(self):
+    def update_ementa(self, *_args):
+        if getattr(self, "_atualizando_ementa", False):
+            return
+
+        self._atualizando_ementa = True
         try:
             self.gerenciamento_atividades.update_ementa()
+
+        except KeyboardInterrupt:
+            logger.warning("Interrupção ignorada durante atualização de ementa.", exc_info=True)
 
         except Exception as e:
             logger.critical(f"Erro fatal ao atualizar ementa: {e}", exc_info=True)
 
-    def update_semestre(self):
+        finally:
+            self._atualizando_ementa = False
+
+    def update_semestre(self, *_args):
+        if getattr(self, "_atualizando_semestre", False):
+            return
+
+        self._atualizando_semestre = True
         try:
             self.gerenciamento_atividades.update_semestre()
+
+        except KeyboardInterrupt:
+            logger.warning("Interrupção ignorada durante atualização de semestre.", exc_info=True)
 
         except Exception as e:
             logger.critical(f"Erro fatal ao atualizar semestre: {e}", exc_info=True)
 
-    def update_disciplinas(self):
+        finally:
+            self._atualizando_semestre = False
+
+    def update_disciplinas(self, *_args):
+        if getattr(self, "_atualizando_disciplinas", False):
+            return
+
+        self._atualizando_disciplinas = True
         try:
             self.gerenciamento_atividades.update_disciplinas()
 
+        except KeyboardInterrupt:
+            logger.warning("Interrupção ignorada durante atualização de disciplinas.", exc_info=True)
+
         except Exception as e:
             logger.critical(f"Erro fatal ao atualizar disciplinas: {e}", exc_info=True)
+
+        finally:
+            self._atualizando_disciplinas = False

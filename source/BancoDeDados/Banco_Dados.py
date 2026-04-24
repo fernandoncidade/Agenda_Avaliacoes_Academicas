@@ -58,9 +58,32 @@ def obter_idioma_atual():
     except Exception:
         return "pt_BR"
 
+def _mesclar_listas(*listas):
+    resultado = []
+    vistos = set()
+    for lista in listas:
+        for item in lista or []:
+            texto = "" if item is None else str(item)
+            chave = texto.strip().casefold()
+            if chave in vistos:
+                continue
+
+            vistos.add(chave)
+            resultado.append(texto)
+
+    return resultado
+
 def obter_cursos():
     try:
         idioma = obter_idioma_atual()
+        base = lista_cursos_en_US if idioma == "en_US" else lista_cursos_pt_BR
+        try:
+            from source.BancoDeDados.Listas_Personalizadas import listar_cursos
+            return _mesclar_listas(base, listar_cursos(idioma))
+
+        except Exception as e:
+            logger.error(f"Erro ao obter cursos personalizados: {e}", exc_info=True)
+
         if idioma == "en_US":
             return lista_cursos_en_US
 
@@ -72,6 +95,14 @@ def obter_cursos():
 def obter_turmas():
     try:
         idioma = obter_idioma_atual()
+        base = lista_turmas_en_US if idioma == "en_US" else lista_turmas_pt_BR
+        try:
+            from source.BancoDeDados.Listas_Personalizadas import listar_turmas
+            return _mesclar_listas(base, listar_turmas(idioma))
+
+        except Exception as e:
+            logger.error(f"Erro ao obter turmas personalizadas: {e}", exc_info=True)
+
         if idioma == "en_US":
             return lista_turmas_en_US
 
@@ -85,6 +116,14 @@ def obter_turmas():
 def obter_avaliacoes():
     try:
         idioma = obter_idioma_atual()
+        base = lista_avaliacoes_en_US if idioma == "en_US" else lista_avaliacoes_pt_BR
+        try:
+            from source.BancoDeDados.Listas_Personalizadas import listar_tipos_atividade
+            return _mesclar_listas(base, listar_tipos_atividade(idioma))
+
+        except Exception as e:
+            logger.error(f"Erro ao obter tipos de atividade personalizados: {e}", exc_info=True)
+
         if idioma == "en_US":
             return lista_avaliacoes_en_US
 
@@ -92,6 +131,23 @@ def obter_avaliacoes():
 
     except Exception as e:
         logger.error(f"Erro ao obter avaliações: {e}", exc_info=True)
+
+def obter_sequencias():
+    try:
+        idioma = obter_idioma_atual()
+        base = [""] + [str(i) for i in range(1, 11)]
+        try:
+            from source.BancoDeDados.Listas_Personalizadas import listar_sequencias_atividade
+            return _mesclar_listas(base, listar_sequencias_atividade(idioma))
+
+        except Exception as e:
+            logger.error(f"Erro ao obter sequências personalizadas: {e}", exc_info=True)
+
+        return base
+
+    except Exception as e:
+        logger.error(f"Erro ao obter sequências: {e}", exc_info=True)
+        return [""] + [str(i) for i in range(1, 11)]
 
 def traduzir_curso(curso, idioma_destino=None):
     try:
@@ -145,18 +201,27 @@ def obter_estrutura_cursos():
 
 def obter_ementas(curso):
     try:
+        idioma = obter_idioma_atual()
         estrutura = obter_estrutura_cursos()
+        ementas_personalizadas = []
+        try:
+            from source.BancoDeDados.Listas_Personalizadas import listar_ementas
+            ementas_personalizadas = listar_ementas(idioma, curso)
+
+        except Exception as e:
+            logger.error(f"Erro ao obter ementas personalizadas para o curso '{curso}': {e}", exc_info=True)
+
         if not curso:
-            return []
+            return _mesclar_listas(ementas_personalizadas)
 
         if curso in estrutura:
-            return list(estrutura.get(curso, {}).keys())
+            return _mesclar_listas(list(estrutura.get(curso, {}).keys()), ementas_personalizadas)
 
         for chave in estrutura.keys():
             if chave.lower() == curso.lower():
-                return list(estrutura.get(chave, {}).keys())
+                return _mesclar_listas(list(estrutura.get(chave, {}).keys()), ementas_personalizadas)
 
-        return []
+        return _mesclar_listas(ementas_personalizadas)
 
     except Exception as e:
         logger.error(f"Erro ao obter ementas para o curso '{curso}': {e}", exc_info=True)
@@ -164,21 +229,32 @@ def obter_ementas(curso):
 
 def obter_semestres(curso, ementa):
     try:
+        idioma = obter_idioma_atual()
         estrutura = obter_estrutura_cursos()
+        semestres_personalizados = []
+        try:
+            from source.BancoDeDados.Listas_Personalizadas import listar_semestres
+            semestres_personalizados = listar_semestres(idioma, curso, ementa)
+
+        except Exception as e:
+            logger.error(f"Erro ao obter semestres personalizados para o curso '{curso}': {e}", exc_info=True)
+
         if not curso or not ementa:
-            return []
+            return _mesclar_listas(semestres_personalizados)
 
         cursos_keys = estrutura.get(curso)
         if cursos_keys and ementa in cursos_keys:
-            return list(cursos_keys[ementa].keys()) if isinstance(cursos_keys[ementa], dict) else []
+            base = list(cursos_keys[ementa].keys()) if isinstance(cursos_keys[ementa], dict) else []
+            return _mesclar_listas(base, semestres_personalizados)
 
         for ck, v in estrutura.items():
             if ck.lower() == curso.lower():
                 for em in v.keys():
                     if em.lower() == ementa.lower():
-                        return list(v[em].keys()) if isinstance(v[em], dict) else []
+                        base = list(v[em].keys()) if isinstance(v[em], dict) else []
+                        return _mesclar_listas(base, semestres_personalizados)
 
-        return []
+        return _mesclar_listas(semestres_personalizados)
 
     except Exception as e:
         logger.error(f"Erro ao obter ementas para o curso '{curso}': {e}", exc_info=True)
@@ -186,42 +262,100 @@ def obter_semestres(curso, ementa):
 
 def obter_disciplinas(curso, ementa, semestre):
     try:
+        idioma = obter_idioma_atual()
         estrutura = obter_estrutura_cursos()
+        disciplinas_personalizadas = []
+        try:
+            from source.BancoDeDados.Listas_Personalizadas import listar_disciplinas
+            disciplinas_personalizadas = listar_disciplinas(idioma, curso, ementa, semestre)
+
+        except Exception as e:
+            logger.error(f"Erro ao obter disciplinas personalizadas para o curso '{curso}': {e}", exc_info=True)
+
         if not curso or not ementa or not semestre:
-            return []
+            return _mesclar_listas(disciplinas_personalizadas)
 
         cursos_keys = estrutura.get(curso)
         if cursos_keys:
             ementa_obj = cursos_keys.get(ementa)
             if isinstance(ementa_obj, dict) and semestre in ementa_obj:
-                return list(ementa_obj[semestre])
+                return _mesclar_listas(list(ementa_obj[semestre]), disciplinas_personalizadas)
 
             for em, sems in cursos_keys.items():
                 if em.lower() == ementa.lower():
                     if isinstance(sems, dict):
                         for s_key, disciplinas in sems.items():
                             if s_key.lower() == semestre.lower():
-                                return list(disciplinas)
+                                return _mesclar_listas(list(disciplinas), disciplinas_personalizadas)
 
         for ck, cval in estrutura.items():
             for em, sems in cval.items():
                 if em.lower() == ementa.lower():
                     for s_key, disciplinas in sems.items():
                         if s_key.lower() == semestre.lower():
-                            return list(disciplinas)
+                            return _mesclar_listas(list(disciplinas), disciplinas_personalizadas)
 
-        return []
+        return _mesclar_listas(disciplinas_personalizadas)
 
     except Exception as e:
         logger.error(f"Erro ao obter disciplinas para o curso '{curso}', ementa '{ementa}' e semestre '{semestre}': {e}", exc_info=True)
         return []
 
+def registrar_valores_personalizados(
+    curso="",
+    ementa="",
+    semestre="",
+    disciplina="",
+    turma="",
+    tipo="",
+    sequencia="",
+    registrar_curso=False,
+    registrar_ementa=False,
+    registrar_semestre=False,
+    registrar_disciplina=False,
+    registrar_turma=False,
+    registrar_tipo=False,
+    registrar_sequencia=False,
+):
+    try:
+        from source.BancoDeDados import Listas_Personalizadas as listas_personalizadas
+
+        idioma = obter_idioma_atual()
+        resultados = {}
+        if registrar_curso:
+            resultados["curso"] = listas_personalizadas.inserir_curso(idioma, curso)
+
+        if registrar_ementa:
+            resultados["ementa"] = listas_personalizadas.inserir_ementa(idioma, curso, ementa)
+
+        if registrar_semestre:
+            resultados["semestre"] = listas_personalizadas.inserir_semestre(idioma, curso, ementa, semestre)
+
+        if registrar_disciplina:
+            resultados["disciplina"] = listas_personalizadas.inserir_disciplina(idioma, curso, ementa, semestre, disciplina)
+
+        if registrar_turma:
+            resultados["turma"] = listas_personalizadas.inserir_turma(idioma, turma)
+
+        if registrar_tipo:
+            resultados["tipo"] = listas_personalizadas.inserir_tipo_atividade(idioma, tipo)
+
+        if registrar_sequencia:
+            resultados["sequencia"] = listas_personalizadas.inserir_sequencia_atividade(idioma, sequencia)
+
+        return resultados
+
+    except Exception as e:
+        logger.error(f"Erro ao registrar valores personalizados: {e}", exc_info=True)
+        return {}
+
 def atualizar_listas_exportadas():
     try:
-        global lista_cursos, lista_turmas, lista_avaliacoes
+        global lista_cursos, lista_turmas, lista_avaliacoes, lista_sequencias
         lista_cursos = obter_cursos()
         lista_turmas = obter_turmas()
         lista_avaliacoes = obter_avaliacoes()
+        lista_sequencias = obter_sequencias()
 
     except Exception as e:
         logger.error(f"Erro ao atualizar listas exportadas: {e}", exc_info=True)
@@ -229,6 +363,7 @@ def atualizar_listas_exportadas():
 lista_cursos = obter_cursos()
 lista_turmas = obter_turmas()
 lista_avaliacoes = obter_avaliacoes()
+lista_sequencias = obter_sequencias()
 
 def construir_mapeamento_codigo_para_cor():
     try:

@@ -1,5 +1,5 @@
 AVISO DE COPYRIGHT E MARCA REGISTRADA
-Versão 0.0.1.0, 9 de outubro de 2025
+Versão 2026.4.23.0, 23 de abril de 2026
 ======================================
 
 Copyright (C) 2025–2026 Fernando Nillsson Cidade. Todos os direitos reservados.

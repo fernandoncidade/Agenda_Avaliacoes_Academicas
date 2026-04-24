@@ -1,6 +1,6 @@
 COMMERCIAL LICENSE AGREEMENT - ACADEMIC ASSESSMENTS SCHEDULE
-Version: 0.0.1.0
-Date: October 9, 2025
+Version: 2026.4.23.0
+Date: April 23, 2026
 
 This Commercial License Agreement ("Agreement") is entered into by and between:
 

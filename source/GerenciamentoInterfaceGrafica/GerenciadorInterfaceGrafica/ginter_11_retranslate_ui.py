@@ -1,5 +1,6 @@
 from PySide6.QtCore import QCoreApplication, QLocale
-from source.BancoDeDados.Banco_Dados import obter_cursos, obter_turmas, obter_avaliacoes
+from source.BancoDeDados.Banco_Dados import obter_cursos, obter_turmas, obter_avaliacoes, obter_sequencias
+from source.utils.ComboBoxUtils import substituir_itens_combo
 from source.utils.LogManager import LogManager
 
 logger = LogManager.get_logger()
@@ -32,6 +33,15 @@ def retranslate_ui(self):
 
             if hasattr(self, 'menu_idiomas'):
                 self.menu_idiomas.setTitle(_translate("InterfaceGerenciadorAtividades", "Idiomas"))
+
+            if hasattr(self, 'menu_excluir_item_listas'):
+                self.menu_excluir_item_listas.setTitle(_translate("InterfaceGerenciadorAtividades", "Excluir Item"))
+
+            if hasattr(self, 'delete_list_menus') and hasattr(self, 'delete_list_action_sources'):
+                for codigo, menu in self.delete_list_menus.items():
+                    label_source = self.delete_list_action_sources.get(codigo)
+                    if label_source:
+                        menu.setTitle(_translate("InterfaceGerenciadorAtividades", label_source))
 
             if hasattr(self, 'menu_arquivo'):
                 self.menu_arquivo.setTitle(_translate("InterfaceGerenciadorAtividades", "Arquivo"))
@@ -92,14 +102,19 @@ def retranslate_ui(self):
         except Exception as e:
             logger.error(f"Erro ao atualizar calendário: {e}", exc_info=True)
 
-        self.combo_curso.clear()
-        self.combo_curso.addItems(obter_cursos())
+        curso_atual = self.combo_curso.currentText()
+        turma_atual = self.entry_codigo.currentText()
+        tipo_atual = self.combo_tipo.currentText()
+        sequencia_atual = self.combo_sequencia.currentText()
 
-        self.entry_codigo.clear()
-        self.entry_codigo.addItems(obter_turmas())
+        substituir_itens_combo(self.combo_curso, obter_cursos(), curso_atual)
 
-        self.combo_tipo.clear()
-        self.combo_tipo.addItems(obter_avaliacoes())
+        substituir_itens_combo(self.entry_codigo, obter_turmas(), turma_atual)
+
+        substituir_itens_combo(self.combo_tipo, obter_avaliacoes(), tipo_atual)
+
+        substituir_itens_combo(self.combo_sequencia, obter_sequencias(), sequencia_atual)
+        self.update_ementa()
 
         try:
             if hasattr(self, 'lang_actions') and hasattr(self, 'gerenciador_traducao'):

@@ -32,9 +32,9 @@ class LogManager:
     @classmethod
     def _configure_logging(cls):
         try:
-            log_dir = os.path.join(os.environ.get('LOCALAPPDATA', os.path.expanduser('~')), 'CompressionManager', 'logs')
+            log_dir = os.path.join(os.environ.get('LOCALAPPDATA', os.path.expanduser('~')), 'AgendaAvaliacoesAcademicas', 'logs')
             os.makedirs(log_dir, exist_ok=True)
-            cls._log_file = os.path.join(log_dir, f'file_compression_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log')
+            cls._log_file = os.path.join(log_dir, f'file_agenda_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log')
 
             logging.basicConfig(
                 level=logging.DEBUG,
@@ -48,9 +48,9 @@ class LogManager:
             cls._logger = logging.getLogger('FileCompression')
 
         except Exception as e:
-            user_data_dir = os.path.join(os.path.expanduser('~'), 'AppData', 'Local', 'CompressionManager', 'logs')
+            user_data_dir = os.path.join(os.path.expanduser('~'), 'AppData', 'Local', 'AgendaAvaliacoesAcademicas', 'logs')
             os.makedirs(user_data_dir, exist_ok=True)
-            cls._log_file = os.path.join(user_data_dir, f'file_compression_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log')
+            cls._log_file = os.path.join(user_data_dir, f'file_agenda_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log')
 
             logging.basicConfig(
                 level=logging.DEBUG,

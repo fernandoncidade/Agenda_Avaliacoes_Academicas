@@ -1,6 +1,6 @@
 from PySide6.QtCore import QCoreApplication
 from PySide6.QtGui import QAction, QActionGroup
-from PySide6.QtWidgets import QMessageBox
+from PySide6.QtWidgets import QMessageBox, QMenu
 from source.utils.LogManager import LogManager
 
 logger = LogManager.get_logger()
@@ -10,6 +10,16 @@ try:
 
 except Exception:
     exibir_sobre = None
+
+try:
+    from source.GerenciamentoInterfaceGrafica.GerenciadorInterfaceGrafica.ginter_12_excluir_item_lista_personalizada import (
+        CATEGORIAS_EXCLUSAO_LISTAS,
+        popular_menu_itens_personalizados,
+    )
+
+except Exception:
+    CATEGORIAS_EXCLUSAO_LISTAS = []
+    popular_menu_itens_personalizados = None
 
 def create_menu(self):
     try:
@@ -70,6 +80,23 @@ def create_menu(self):
 
         except Exception as e:
             logger.critical(f"Erro fatal ao criar ações de idioma: {e}", exc_info=True)
+
+        try:
+            self.menu_excluir_item_listas = self.menu_config.addMenu(_translate("InterfaceGerenciadorAtividades", "Excluir Item"))
+            self.delete_list_menus = {}
+            self.delete_list_action_sources = {}
+
+            for codigo, label_source in CATEGORIAS_EXCLUSAO_LISTAS:
+                submenu = QMenu(_translate("InterfaceGerenciadorAtividades", label_source), self.menu_excluir_item_listas)
+                self.menu_excluir_item_listas.addMenu(submenu)
+                submenu.aboutToShow.connect(
+                    lambda c=codigo, m=submenu: popular_menu_itens_personalizados(self, m, c)
+                )
+                self.delete_list_menus[codigo] = submenu
+                self.delete_list_action_sources[codigo] = label_source
+
+        except Exception as e:
+            logger.critical(f"Erro fatal ao criar ações de exclusão de listas personalizadas: {e}", exc_info=True)
 
         try:
             self.menu_cores = self.menu_config.addMenu(_translate("InterfaceGerenciadorAtividades", "Cores"))

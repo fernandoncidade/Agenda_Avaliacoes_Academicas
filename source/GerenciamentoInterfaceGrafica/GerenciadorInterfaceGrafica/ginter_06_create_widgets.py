@@ -1,6 +1,7 @@
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import (QWidget, QLabel, QComboBox, QCalendarWidget, QTextBrowser, QVBoxLayout, QHBoxLayout, QSpacerItem, QSizePolicy)
-from source.BancoDeDados.Banco_Dados import lista_cursos, lista_turmas, lista_avaliacoes
+from source.BancoDeDados.Banco_Dados import obter_cursos, obter_turmas, obter_avaliacoes, obter_sequencias
+from source.utils.ComboBoxUtils import configurar_combo_texto_livre
 from source.utils.LogManager import LogManager
 
 logger = LogManager.get_logger()
@@ -12,15 +13,17 @@ def create_widgets(self):
 
         self.label_curso = QLabel()
         self.combo_curso = QComboBox()
+        configurar_combo_texto_livre(self.combo_curso)
         self.combo_curso.setMinimumWidth(300)
         self.combo_curso.setMaximumWidth(300)
-        self.combo_curso.addItems(lista_cursos)
+        self.combo_curso.addItems(obter_cursos())
         self.combo_curso.currentTextChanged.connect(self.update_ementa)
         layout_vertical_1.addWidget(self.label_curso)
         layout_vertical_1.addWidget(self.combo_curso)
 
         self.label_ementa = QLabel()
         self.entry_ementa = QComboBox()
+        configurar_combo_texto_livre(self.entry_ementa)
         self.entry_ementa.setMinimumWidth(300)
         self.entry_ementa.setMaximumWidth(300)
         self.entry_ementa.currentTextChanged.connect(self.update_semestre)
@@ -29,6 +32,7 @@ def create_widgets(self):
 
         self.label_semestre = QLabel()
         self.entry_semestre = QComboBox()
+        configurar_combo_texto_livre(self.entry_semestre)
         self.entry_semestre.setMinimumWidth(300)
         self.entry_semestre.setMaximumWidth(300)
         self.entry_semestre.currentTextChanged.connect(self.update_disciplinas)
@@ -37,6 +41,7 @@ def create_widgets(self):
 
         self.label_disciplina = QLabel()
         self.entry_disciplina = QComboBox()
+        configurar_combo_texto_livre(self.entry_disciplina)
         self.entry_disciplina.setMinimumWidth(300)
         self.entry_disciplina.setMaximumWidth(300)
         layout_vertical_1.addWidget(self.label_disciplina)
@@ -44,25 +49,28 @@ def create_widgets(self):
 
         self.label_codigo = QLabel()
         self.entry_codigo = QComboBox()
+        configurar_combo_texto_livre(self.entry_codigo)
         self.entry_codigo.setMinimumWidth(300)
         self.entry_codigo.setMaximumWidth(300)
-        self.entry_codigo.addItems(lista_turmas)
+        self.entry_codigo.addItems(obter_turmas())
         layout_vertical_1.addWidget(self.label_codigo)
         layout_vertical_1.addWidget(self.entry_codigo)
 
         self.label_tipo = QLabel()
         self.combo_tipo = QComboBox()
+        configurar_combo_texto_livre(self.combo_tipo)
         self.combo_tipo.setMinimumWidth(300)
         self.combo_tipo.setMaximumWidth(300)
-        self.combo_tipo.addItems(lista_avaliacoes)
+        self.combo_tipo.addItems(obter_avaliacoes())
         layout_vertical_1.addWidget(self.label_tipo)
         layout_vertical_1.addWidget(self.combo_tipo)
 
         self.label_sequencia = QLabel()
         self.combo_sequencia = QComboBox()
+        configurar_combo_texto_livre(self.combo_sequencia)
         self.combo_sequencia.setMinimumWidth(300)
         self.combo_sequencia.setMaximumWidth(300)
-        self.combo_sequencia.addItems([""] + [str(i) for i in range(1, 11)])
+        self.combo_sequencia.addItems(obter_sequencias())
         layout_vertical_1.addWidget(self.label_sequencia)
         layout_vertical_1.addWidget(self.combo_sequencia)
 

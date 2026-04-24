@@ -1,6 +1,6 @@
 Política de Privacidade - AGENDA DE AVALIAÇÕES ACADÊMICAS
-Última atualização: 9 de outubro de 2025
-Versão: 0.0.1.0
+Última atualização: 23 de abril de 2026
+Versão: 2026.4.23.0
 
 Objetivo
 - Esta Política descreve como a AGENDA DE AVALIAÇÕES ACADÊMICAS ("Aplicativo" ou "Software") coleta, armazena, processa e protege informações no ambiente do usuário. O aplicativo foi projetado para operar localmente, sem telemetria automática por padrão.

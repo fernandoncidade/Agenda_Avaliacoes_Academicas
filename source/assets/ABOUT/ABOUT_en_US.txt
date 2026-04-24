@@ -1,5 +1,5 @@
 ACADEMIC ASSESSMENTS SCHEDULE
-Version: 0.0.1.0
+Version: 2026.4.23.0
 Author: Fernando Nillsson Cidade
 
 Summary:

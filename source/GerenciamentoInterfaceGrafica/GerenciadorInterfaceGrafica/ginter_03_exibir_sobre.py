@@ -69,7 +69,7 @@ def exibir_sobre(app):
             texto_descricao = descricao_texts.get(idioma, descricao_texts["en_US"])
             cabecalho_fixo = (
                 f"<h3>{QCoreApplication.translate('InterfaceGerenciadorAtividades', 'AGENDA DE AVALIAÇÕES ACADÊMICAS')}</h3>"
-                f"<p><b>{get_text('Versão')}:</b> 0.0.1.0</p>"
+                f"<p><b>{get_text('Versão')}:</b> 2026.4.23.0</p>"
                 f"<p><b>{get_text('Autores')}:</b> Fernando Nillsson Cidade</p>"
                 f"<p><b>{get_text('Descrição')}:</b> {texto_descricao}</p>"
             )

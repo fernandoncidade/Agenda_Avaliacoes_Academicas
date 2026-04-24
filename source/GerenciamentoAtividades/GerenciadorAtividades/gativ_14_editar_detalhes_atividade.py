@@ -3,7 +3,8 @@ from PySide6.QtWidgets import QDialog, QVBoxLayout, QLabel, QComboBox, QCalendar
 from PySide6.QtCore import QDate, QLocale, QCoreApplication
 from PySide6.QtGui import QIcon
 from source.utils.IconUtils import get_icon_path
-from source.BancoDeDados.Banco_Dados import obter_avaliacoes, lista_avaliacoes, obter_turmas, lista_turmas, obter_estrutura_cursos, traduzir_curso, traduzir_ementa, traduzir_semestre, obter_disciplinas
+from source.BancoDeDados.Banco_Dados import obter_avaliacoes, lista_avaliacoes, obter_turmas, lista_turmas, obter_estrutura_cursos, traduzir_curso, traduzir_ementa, traduzir_semestre, obter_disciplinas, obter_sequencias
+from source.utils.ComboBoxUtils import configurar_combo_texto_livre
 from source.utils.LogManager import LogManager
 logger = LogManager.get_logger()
 
@@ -42,6 +43,7 @@ def editar_detalhes_atividade(self, atividade):
 
         label_tipo = QLabel(_translate("InterfaceGerenciadorAtividades", "Tipo:"))
         entry_tipo = QComboBox()
+        configurar_combo_texto_livre(entry_tipo)
 
         try:
             entry_tipo.addItems(obter_avaliacoes())
@@ -55,13 +57,15 @@ def editar_detalhes_atividade(self, atividade):
 
         label_sequencia = QLabel(_translate("InterfaceGerenciadorAtividades", "Sequência:"))
         entry_sequencia = QComboBox()
-        entry_sequencia.addItems([""] + [str(i) for i in range(1, 11)])
+        configurar_combo_texto_livre(entry_sequencia)
+        entry_sequencia.addItems(obter_sequencias())
         entry_sequencia.setCurrentText(atividade.get('sequencia', ''))
         layout.addWidget(label_sequencia)
         layout.addWidget(entry_sequencia)
 
         label_nome = QLabel(_translate("InterfaceGerenciadorAtividades", "Nome:"))
         entry_nome = QComboBox()
+        configurar_combo_texto_livre(entry_nome)
 
         try:
             from source.BancoDeDados.Banco_Dados import CURSOS_PT, CURSOS_EN
@@ -177,6 +181,7 @@ def editar_detalhes_atividade(self, atividade):
 
         label_turma = QLabel(_translate("InterfaceGerenciadorAtividades", "Turma:"))
         entry_turma = QComboBox()
+        configurar_combo_texto_livre(entry_turma)
 
         try:
             entry_turma.addItems(obter_turmas())

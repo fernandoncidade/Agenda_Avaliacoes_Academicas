@@ -1,5 +1,5 @@
 AGENDA DE AVALIAÇÕES ACADÊMICAS
-Versão: 0.0.1.0
+Versão: 2026.4.23.0
 Autor: Fernando Nillsson Cidade
 
 Resumo:

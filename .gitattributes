@@ -1,2 +1,58 @@
-# Auto detect text files and perform LF normalization
+# Default: let Git detect text files and normalize them in the index.
 * text=auto
+
+# Repository metadata.
+.gitattributes text eol=lf
+.gitignore text eol=lf
+
+# Python source and project files.
+*.py text eol=lf
+*.pyi text eol=lf
+*.pyw text eol=lf
+requirements*.txt text eol=lf
+
+# Shell/scripts.
+*.ps1 text eol=crlf
+*.sh text eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Documentation, translations and structured text.
+*.md text eol=lf
+*.rst text eol=lf
+*.txt text eol=lf
+*.ts text eol=lf
+*.xml text eol=lf
+*.json text eol=lf
+*.toml text eol=lf
+*.ini text eol=lf
+*.cfg text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.csv text eol=lf
+
+# Qt compiled translation files and binary assets.
+*.qm binary
+*.ico binary
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.svg text eol=lf
+
+# Local databases and packaged artifacts.
+*.db binary
+*.sqlite binary
+*.sqlite3 binary
+*.exe binary
+*.dll binary
+*.pyd binary
+*.so binary
+*.dylib binary
+*.zip binary
+*.7z binary
+*.tar binary
+*.gz binary
+*.whl binary

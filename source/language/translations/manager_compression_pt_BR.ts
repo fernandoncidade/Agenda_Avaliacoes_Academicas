@@ -95,6 +95,56 @@
     </message>
 
     <message>
+      <source>Excluir Item</source>
+      <translation>Excluir Item</translation>
+    </message>
+
+    <message>
+      <source>Itens personalizados:</source>
+      <translation>Itens personalizados:</translation>
+    </message>
+
+    <message>
+      <source>Nenhum item personalizado encontrado.</source>
+      <translation>Nenhum item personalizado encontrado.</translation>
+    </message>
+
+    <message>
+      <source>Confirmar exclusão</source>
+      <translation>Confirmar exclusão</translation>
+    </message>
+
+    <message>
+      <source>Deseja remover o item selecionado?</source>
+      <translation>Deseja remover o item selecionado?</translation>
+    </message>
+
+    <message>
+      <source>Sim</source>
+      <translation>Sim</translation>
+    </message>
+
+    <message>
+      <source>Não</source>
+      <translation>Não</translation>
+    </message>
+
+    <message>
+      <source>Item excluído</source>
+      <translation>Item excluído</translation>
+    </message>
+
+    <message>
+      <source>O item foi excluído.</source>
+      <translation>O item foi excluído.</translation>
+    </message>
+
+    <message>
+      <source>Não foi possível excluir o item.</source>
+      <translation>Não foi possível excluir o item.</translation>
+    </message>
+
+    <message>
       <source>Idiomas</source>
       <translation>Idiomas</translation>
     </message>

@@ -1,4 +1,5 @@
 from source.utils.LogManager import LogManager
+from source.utils.ComboBoxUtils import substituir_itens_combo
 logger = LogManager.get_logger()
 
 def update_ementa(self):
@@ -7,8 +8,8 @@ def update_ementa(self):
 
         selected_curso = self.combo_curso.currentText()
         ementas = obter_ementas(selected_curso) or []
-        self.entry_ementa.clear()
-        self.entry_ementa.addItems([""] + list(ementas))
+        substituir_itens_combo(self.entry_ementa, [""] + list(ementas))
+        self.update_semestre()
 
     except Exception as e:
         logger.critical(f"Erro fatal ao atualizar ementa: {e}", exc_info=True)

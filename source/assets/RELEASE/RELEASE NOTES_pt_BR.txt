@@ -1,3 +1,26 @@
+NOTAS DE LANÇAMENTO: Versão: 2026.4.23.0
+23 de abril de 2026
+
+Resumo:
+Foi implementado uma nova disciplina, "Engenharia Social", no curso de Engenharia Civil. Esta disciplina aborda os aspectos sociais relacionados à engenharia, incluindo a interação entre engenheiros e comunidades, ética profissional e o impacto social dos projetos de engenharia.
+
+Detalhes:
+- A disciplina "Engenharia Social" foi adicionada ao currículo do curso de Engenharia Civil.
+- O código da disciplina é TH045.
+
+Complemento desta versão:
+- Os campos Curso, Ementa, Semestre, Disciplina, Turma da Disciplina, Tipo de Atividade Avaliativa e Sequência da Atividade agora aceitam entradas digitadas pelo usuário, além dos valores previamente cadastrados.
+- Novos valores personalizados são armazenados localmente em listas.db, com tabelas próprias para cursos, ementas, semestres, disciplinas, turmas, tipos de atividade e sequências.
+- As listas fixas do aplicativo passaram a ser combinadas automaticamente com os valores personalizados, preservando a relação entre curso, ementa, semestre e disciplina.
+- Foi adicionado o menu Configurações > Excluir Item, com submenus por lista, permitindo remover diretamente itens personalizados salvos em listas.db.
+- A exclusão de itens personalizados agora exibe confirmação antes da remoção e mensagem de sucesso após a exclusão.
+- Os botões da confirmação de exclusão foram traduzidos corretamente para Sim/Não em português e Yes/No em inglês.
+- Foram atualizados os arquivos de tradução .ts e recompilados os arquivos .qm para refletir as novas mensagens da interface.
+- A atualização dos combos foi estabilizada para evitar disparos intermediários de sinais ao recarregar listas dependentes.
+- Foi criado o script auxiliar mocks/clear_pycache.ps1 para remover diretórios __pycache__ do projeto.
+
+_________________________________________________
+
 NOTAS DE LANÇAMENTO: Versão: 0.0.1.0
 09 de Outubro de 2025
 
