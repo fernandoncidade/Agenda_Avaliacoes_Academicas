@@ -1,85 +1,64 @@
-COMMERCIAL LICENSE AGREEMENT - ACADEMIC ASSESSMENTS SCHEDULE
-Version: 2026.4.23.0
-Date: April 23, 2026
+COMMERCIAL SERVICES, SUPPORT AND OFFICIAL DISTRIBUTION TERMS
+Project: ACADEMIC ASSESSMENTS SCHEDULE
+Version: 2026.4.24.0
+Date: April 24, 2026
 
-This Commercial License Agreement ("Agreement") is entered into by and between:
+This document describes optional paid services and conditions for author-authorized official distributions associated with the ACADEMIC ASSESSMENTS SCHEDULE project.
 
-LICENSOR: Fernando Nillsson Cidade, hereinafter referred to as "LICENSOR".
-and
-LICENSEE: The natural or legal person who acquires a commercial license for the ACADEMIC ASSESSMENTS SCHEDULE software, hereinafter referred to as "LICENSEE".
-
-This Agreement complements the terms of the End User License Agreement (EULA) and establishes specific conditions for commercial use and redistribution.
+The Software itself is licensed under the GNU Lesser General Public License, version 3 ("GNU LGPL v3"), as stated in LICENSE. Nothing in this document limits the rights that recipients already have under that license to use, study, copy, modify and redistribute the Software.
 
 1. PURPOSE
-1.1 The LICENSOR grants the LICENSEE a license to use the software "ACADEMIC ASSESSMENTS SCHEDULE" ("Software"), in accordance with the purchased license type.
-1.2 The Software is a graphical utility for Windows developed in Python with PySide6, intended to consolidate, organize and present dates of assessment activities. Commercial distribution is normally provided in compiled/executable form.
+1.1 These terms govern optional commercial relationships involving support, training, customization, packaging, official distribution, publication in digital stores or other author-authorized services.
+1.2 No separate commercial license is required for ordinary use, study, modification or redistribution of the Software under the GNU LGPL v3.
 
-2. LICENSE TYPES
-2.1 Individual License
-  a) Installation on up to 2 (two) devices owned by the same LICENSEE.
-  b) Updates and bug fixes for 1 (one) year.
-  c) Basic technical support via email for 1 (one) year.
-2.2 Institutional License (Small Institutions)
-  a) Installation on up to 10 (ten) workstations within the same organization.
-  b) Updates for 1 (one) year; priority email support.
-  c) Possibility of minor text/branding customizations, where applicable.
-2.3 Corporate / Campus License
-  a) Unlimited installations subject to commercial agreement.
-  b) Updates and support defined in contract (SLA) and options for custom integration.
+2. OPTIONAL SERVICE MODELS
+2.1 Individual support package
+  a) Installation assistance for a limited number of devices or users, as agreed.
+  b) Guidance on updates, configuration and troubleshooting.
+2.2 Institutional support package
+  a) Priority support for educational institutions or teams.
+  b) Assistance with deployment, documentation and minor non-exclusive adjustments.
+2.3 Enterprise / campus agreement
+  a) Broader support, SLA or integration services as defined in a separate proposal.
+  b) Optional coordination for official-branded distributions, if expressly agreed.
 
 3. PRICE AND PAYMENT
-3.1 Prices and payment terms are defined by commercial proposal or current price list.
-3.2 Payments via bank slip (boleto), credit card, bank transfer or PIX, unless otherwise agreed.
-3.3 Late payments are subject to interest and penalties as negotiated.
+3.1 Prices, scope and payment terms are defined by commercial proposal, invoice or current service table.
+3.2 Payment methods may include bank transfer, PIX, card or other mutually accepted means.
+3.3 Delays in payment may affect only the contracted services; they do not cancel rights already granted under the GNU LGPL v3 for copies of the Software already received.
 
-4. TERM AND RENEWAL
-4.1 The Agreement remains in force in accordance with the purchased license type and paid period.
-4.2 Renewal of updates and support requires additional payment; use of the executable is not conditioned on renewal, unless otherwise provided in the contract.
+4. SUPPORT, UPDATES AND DELIVERABLES
+4.1 Paid support applies to the agreed service scope, response window and covered version range.
+4.2 Updates may be delivered as source code, patches, guidance or executable packages, according to the commercial proposal.
+4.3 Unless explicitly agreed otherwise, commercial support does not imply exclusive ownership transfer of custom code or branding assets.
 
-5. SUPPORT AND UPDATES
-5.1 Support and updates are limited to the version distributed as an executable, according to the purchased license type.
-5.2 The LICENSOR will provide assistance for installation of the executable, guidance and correction of defects that prevent essential use.
+5. OFFICIAL DISTRIBUTIONS, STORES AND BRANDING
+5.1 Redistribution of the Software under the GNU LGPL v3 remains permitted according to LICENSE.
+5.2 Publication in digital stores, signed packages, branded installers, use of official project names/logos in a way that suggests endorsement, or representation as an official distribution may require written authorization from the right holder.
+5.3 Charging for support, packaging, delivery or related services does not replace the recipients' software freedoms under the GNU LGPL v3.
 
-6. LIMITATIONS OF LIABILITY
-6.1 The LICENSOR shall not be liable for indirect damages, loss of profits or consequential losses.
-6.2 The LICENSEE is responsible for data backups (exports, configuration files) and for compliance with internal IT policies.
-6.3 The Software is provided "as is", except for legal warranties.
+6. THIRD-PARTY COMPONENTS
+6.1 The Software may include third-party components such as Qt libraries, plugins, SQLite support and compiler runtimes applicable to the build.
+6.2 Those components remain subject to their own licenses, notices and source-availability obligations where applicable.
 
 7. PRIVACY AND DATA
-7.1 User data (activities and settings) are stored locally; there is no automatic transmission to external servers in the standard executable.
-7.2 Processing of personal data will comply with applicable legislation (e.g., LGPD) as described in the Privacy Policy delivered to the LICENSEE.
+7.1 User data is normally stored locally in the standard distribution; privacy handling is described in the Privacy Policy shipped with the project.
+7.2 If a commercial service requires access to user data, logs or exported files, such access must be limited to what is necessary for the contracted service and handled according to applicable law.
 
-8. ACCESSIBILITY AND COMPLIANCE FOR DIGITAL STORES
-8.1 Where applicable, accessibility documentation (e.g., MS Store / ADA declaration) accompanies the commercial distribution.
-8.2 Inclusion in digital stores does not alter the clauses of this Agreement, except where a distributor's written requirement stipulates otherwise.
+8. WARRANTY AND LIABILITY
+8.1 The Software is provided "AS IS" under the GNU LGPL v3, except for non-waivable legal warranties.
+8.2 Any separate service-level commitment, if offered, must be stated in writing in the relevant commercial proposal.
+8.3 To the extent permitted by law, the author is not liable for indirect or consequential damages arising from use of the Software or from unsupported third-party modifications.
 
-9. THIRD-PARTY COMPONENTS
-9.1 The Software may include third-party components (e.g., ReportLab). Licenses and notices are included in the distribution package.
-9.2 The LICENSOR will provide a list of dependencies and license texts to the LICENSEE.
+9. TERM AND TERMINATION OF COMMERCIAL RELATIONSHIP
+9.1 Commercial services remain in force for the agreed term or until completion of the contracted deliverables.
+9.2 Termination or expiration of a paid service does not by itself terminate the recipient's rights under the GNU LGPL v3 for copies of the Software already received.
 
-10. TRANSFER AND RESTRICTIONS
-10.1 The LICENSEE may not sublicense, redistribute or resell the executable without the LICENSOR's express authorization, except as permitted by the purchased license type.
-10.2 Installations beyond the permitted number constitute a contractual breach.
-
-11. TERMINATION
-11.1 Termination for material breach, non-payment or mutual agreement.
-11.2 In case of termination due to LICENSEE's fault, amounts paid will not be refunded unless otherwise agreed.
-
-12. APPLICABLE LAW AND JURISDICTION
-12.1 This Agreement is governed by Brazilian law.
-12.2 The courts of the District of São José dos Pinhais, State of Paraná, Brazil, are chosen to resolve disputes.
+10. APPLICABLE LAW AND JURISDICTION
+10.1 These commercial terms and any service agreement derived from them are governed by Brazilian law.
+10.2 The courts of the District of São José dos Pinhais, State of Paraná, Brazil, are chosen to resolve disputes, unless mandatory law requires otherwise.
 
 FINAL PROVISIONS
-- Additional services (customization, integration, training) will be subject to an addendum.
-- The LICENSOR delivers the executable and resources; the LICENSEE acknowledges that no development dependencies are required to run the executable.
-
-The parties electronically sign by accepting the terms.
-
-Brazil, Paraná, São José dos Pinhais
-
-Fernando Nillsson Cidade
-______________________________
-LICENSOR
-
-______________________________
-LICENSEE
+- Additional services such as integration, migration, training or branding review may be covered by a separate written proposal.
+- If this document conflicts with LICENSE regarding software freedoms, LICENSE prevails.
+- Contact: Fernando Nillsson Cidade — linceu_lighthouse@outlook.com

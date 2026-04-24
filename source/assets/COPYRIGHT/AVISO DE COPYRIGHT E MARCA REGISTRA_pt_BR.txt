@@ -1,9 +1,11 @@
 AVISO DE COPYRIGHT E MARCA REGISTRADA
-Versão 2026.4.23.0, 23 de abril de 2026
+Versão 2026.4.24.0, 24 de abril de 2026
 ======================================
 
-Copyright (C) 2025–2026 Fernando Nillsson Cidade. Todos os direitos reservados.
+Copyright (C) 2025–2026 Fernando Nillsson Cidade.
 
-O software AGENDA DE AVALIAÇÕES ACADÊMICAS e toda a documentação associada, incluindo todo o conteúdo do Software e Dependências, são propriedade intelectual de Fernando Nillsson Cidade. A proteção de copyright abrange, mas não se limita a, o código-fonte do programa, a interface gráfica, os textos, os manuais e a descrição do projeto.
+O projeto AGENDA DE AVALIAÇÕES ACADÊMICAS, também apresentado em inglês como ACADEMIC ASSESSMENTS SCHEDULE, e sua documentação original são obras protegidas por copyright de Fernando Nillsson Cidade. Este aviso identifica a autoria e a titularidade dos materiais originais do projeto, incluindo código-fonte, textos de interface, documentação embarcada e assets específicos do projeto.
 
-O nome "AGENDA DE AVALIAÇÕES ACADÊMICAS" é uma marca comercial pertencente a Fernando Nillsson Cidade. O uso não autorizado do nome, logotipo ou qualquer material distintivo associado ao projeto é estritamente proibido.
+O projeto é distribuído sob a GNU Lesser General Public License, versão 3, conforme descrito no arquivo LICENSE. Essa licença concede aos destinatários os direitos de usar, estudar, modificar e redistribuir o software nos seus termos.
+
+Os nomes "AGENDA DE AVALIAÇÕES ACADÊMICAS" e "ACADEMIC ASSESSMENTS SCHEDULE", bem como os logotipos oficiais e identificadores visuais distintivos usados pelo projeto, servem para identificar distribuições oficiais e comunicações oficiais do projeto. Este aviso não limita as liberdades de software concedidas pela GNU LGPL v3, mas também não concede permissão para sugerir endosso, afiliação ou origem oficial sem autorização prévia do titular.

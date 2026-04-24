@@ -1,3 +1,119 @@
+NOTAS DE LANÇAMENTO: Versão: 2026.4.24.0
+24 de abril de 2026
+
+Resumo:
+Esta versão consolida a refatoração final do Agenda de Avaliações Acadêmicas, tendo como origem o projeto Python localizado em C:\Users\ferna\DEV\Python\Agenda_Avaliacoes_Academicas. A aplicação foi reorganizada como um projeto C++20 com Qt 6, CMake, Ninja, suporte a MSVC e MinGW, tarefas dedicadas no VS Code, distribuição externa automatizada e ferramentas auxiliares próprias para manutenção de versões e traduções.
+- A documentação legal do projeto foi alinhada à GNU LGPL v3 adotada em LICENSE, substituindo referências antigas a MIT ou a termos de redistribuição exclusivamente proprietários nos avisos embarcados.
+
+Objetivo da refatoração:
+- Migrar a base do aplicativo de Python/PySide6 para C++/Qt6, preservando a proposta original: registrar, organizar, consultar, editar e exportar atividades avaliativas acadêmicas.
+- Reduzir a dependência de scripts Python na execução final do aplicativo.
+- Melhorar a previsibilidade do build, da distribuição e dos binários gerados.
+- Separar claramente o aplicativo principal das ferramentas auxiliares usadas para manutenção do projeto.
+- Manter os recursos textuais, documentos legais, traduções, ícones e arquivos de apoio integrados ao fluxo de build e distribuição.
+
+Aplicativo principal:
+- O projeto principal passou a ser compilado como AgendaAvaliacoesAcademicas em C++/Qt6.
+- O código foi organizado em módulos sob source, preservando separações por banco de dados, interface gráfica, gerenciamento de atividades, idioma e utilitários.
+- A interface gráfica foi mantida com suporte a Português (pt_BR) e Inglês (en_US).
+- Os arquivos de assets, documentos legais, notas, política de privacidade, CLC, copyright, release notes e conteúdo da janela Sobre continuam sendo carregados a partir da estrutura source/assets.
+- O aplicativo principal continua compilando os arquivos .ts para .qm por meio de um target interno de traduções chamado AgendaTranslations.
+- O target de distribuição DeployAgenda copia o executável, assets e traduções para D:\MISCELANEAS\VSCode\AGENDA\AgendaAvaliacoesAcademicas e executa windeployqt para incluir as dependências Qt necessárias.
+
+Listas personalizadas e experiência de uso:
+- Os campos Curso, Ementa, Semestre, Disciplina, Turma da Disciplina, Tipo de Atividade Avaliativa e Sequência da Atividade aceitam valores digitados pelo usuário além dos valores previamente cadastrados.
+- Os valores personalizados são armazenados localmente em listas.db, com tabelas próprias para cursos, ementas, semestres, disciplinas, turmas, tipos de atividade e sequências.
+- As listas fixas do aplicativo são combinadas automaticamente com os valores personalizados, preservando a relação entre curso, ementa, semestre e disciplina.
+- Foi adicionado o menu Configurações > Excluir Item, com submenus por lista, permitindo remover itens personalizados salvos em listas.db.
+- A exclusão de itens personalizados exibe confirmação antes da remoção e mensagem de sucesso após a exclusão.
+- Os botões de confirmação foram traduzidos corretamente para Sim/Não em português e Yes/No em inglês.
+- A atualização dos combos foi estabilizada para evitar disparos intermediários de sinais ao recarregar listas dependentes.
+
+Build, VS Code e distribuição:
+- Foram criados e ajustados os arquivos de configuração do VS Code:
+  - .vscode/tasks.json
+  - .vscode/c_cpp_properties.json
+  - .vscode/cmake-kits.json
+  - .vscode/settings.json
+  - .vscode/qt_task.ps1
+  - .vscode/clear_builds.ps1
+- As tarefas do VS Code foram organizadas para MSVC e MinGW:
+  - Qt6: Compilar & Executar AGENDA (MSVC)
+  - Qt6: Compilar AGENDA (MSVC)
+  - Qt6: Executar AGENDA (MSVC)
+  - Qt6: VersionEditor (MSVC)
+  - Qt6: CompileTranslations (MSVC)
+  - Qt6: Compilar & Executar AGENDA (MinGW)
+  - Qt6: Compilar AGENDA (MinGW)
+  - Qt6: Executar AGENDA (MinGW)
+  - Qt6: VersionEditor (MinGW)
+  - Qt6: CompileTranslations (MinGW)
+- O build principal gera diretórios separados na raiz do projeto:
+  - build_AGENDA_msvc
+  - build_AGENDA_mingw
+- O build principal usa CMakePresets.json para configurar os presets qt-msvc e qt-mingw.
+- As tarefas foram ajustadas para usar PowerShell por arquivo (-File), evitando erros de aspas e parsing em comandos longos.
+- O script clear_builds.ps1 remove de forma controlada os diretórios de build do aplicativo e das ferramentas auxiliares.
+
+Ferramentas auxiliares em mocks:
+- O diretório mocks passou a concentrar ferramentas independentes de manutenção.
+- O arquivo mocks/CMakeLists.txt foi consolidado como projeto AgendaTools, contendo os targets:
+  - VersionEditor
+  - CompileTranslations
+- Cada ferramenta auxiliar possui build separado, com estrutura CMake/Ninja completa e binário próprio:
+  - mocks\VersionEditor_msvc
+  - mocks\VersionEditor_mingw
+  - mocks\CompileTranslations_msvc
+  - mocks\CompileTranslations_mingw
+- Esses diretórios contêm arquivos estruturais como .qt, CMakeFiles, *_autogen, build.ninja, CMakeCache.txt, cmake_install.cmake, compile_commands.json, logs do Ninja e o executável correspondente.
+- As ferramentas auxiliares foram separadas do build principal do AGENDA para evitar mistura de artefatos, targets e executáveis.
+
+VersionEditor:
+- A ferramenta VersionEditor foi refatorada a partir do fluxo auxiliar original e convertida para C++/Qt.
+- O executável é gerado separadamente para MSVC e MinGW.
+- A ferramenta verifica e atualiza arquivos textuais de assets, incluindo documentos em Português e Inglês.
+- A versão inicial é carregada automaticamente com base na data atual, no formato ano.mês.dia.0.
+- O formato da versão não usa zeros à esquerda. Exemplo correto: 2026.4.2.0. Exemplo incorreto: 2026.04.02.0.
+- A versão é preenchida junto com a data atual ao abrir a ferramenta, mas não muda automaticamente quando o usuário ajusta manualmente dia, mês ou ano.
+- A ferramenta permite selecionar a pasta base dos arquivos, verificar padrões esperados e salvar alterações nos documentos suportados.
+
+CompileTranslations:
+- A ferramenta CompileTranslations foi movida para mocks e separada do build principal.
+- A ferramenta recebeu interface Qt própria para interação do usuário durante a compilação dos arquivos .ts.
+- A UI permite selecionar a pasta de traduções, listar arquivos .ts, marcar arquivos, compilar somente os marcados ou compilar todos.
+- O log da compilação é exibido na própria janela.
+- O executável usa lrelease da instalação Qt configurada para gerar os arquivos .qm.
+- Os binários são gerados separadamente em mocks\CompileTranslations_msvc e mocks\CompileTranslations_mingw.
+
+Runtime Qt dos utilitários:
+- Os targets VersionEditor e CompileTranslations agora executam windeployqt automaticamente após a compilação.
+- As DLLs Qt essenciais são copiadas para a pasta do executável:
+  - Qt6Core.dll
+  - Qt6Gui.dll
+  - Qt6Widgets.dll
+- O plugin de plataforma platforms\qwindows.dll também é copiado, permitindo executar os binários diretamente pelo Explorer.
+- Nos builds MinGW, também são copiadas dependências como libgcc_s_seh-1.dll, libstdc++-6.dll e libwinpthread-1.dll.
+- Com isso, os erros de execução por ausência de Qt6Core.dll, Qt6Gui.dll e Qt6Widgets.dll foram corrigidos.
+
+Traduções:
+- Os arquivos .ts e .qm de Português e Inglês foram mantidos em source/language/translations.
+- O build principal continua recompilando as traduções necessárias para o aplicativo.
+- A ferramenta CompileTranslations permite recompilar manualmente as traduções pela interface gráfica.
+- As mensagens novas da interface e das ferramentas foram refletidas nos arquivos de tradução.
+
+Validação realizada:
+- O projeto principal foi configurado e compilado com os presets MSVC e MinGW.
+- Os utilitários VersionEditor e CompileTranslations foram configurados, compilados e implantados com MSVC e MinGW.
+- Foi confirmado que os builds auxiliares geram toda a estrutura esperada e não poluem build_AGENDA_msvc nem build_AGENDA_mingw.
+- Foi confirmado que os binários auxiliares possuem as DLLs Qt e plugins necessários ao lado dos executáveis.
+- O aviso sobre WrapVulkanHeaders pode aparecer durante a configuração do Qt/CMake, mas não bloqueia a compilação nem a execução das ferramentas.
+
+Observações finais:
+- Esta versão representa a transição do projeto Python original para uma base C++/Qt mais estruturada, com build reproduzível e ferramentas auxiliares integradas.
+- O projeto passa a ter um fluxo de desenvolvimento mais claro para edição de versões, compilação de traduções, geração de builds MSVC/MinGW e distribuição externa do aplicativo.
+
+_________________________________________________
+
 NOTAS DE LANÇAMENTO: Versão: 2026.4.23.0
 23 de abril de 2026
 
@@ -63,8 +179,8 @@ Limitações conhecidas (inicial):
 - Funcionalidades avançadas de sincronização e multiusuário não estão presentes nesta versão inicial.
 
 Licença e avisos:
-- Projeto licenciado sob MIT (ver arquivo LICENSE).
-- Componentes de terceiros e suas licenças listados em assets/NOTICES/NOTICE_pt_BR.txt e requirements.txt.
+- Projeto licenciado sob GNU LGPL v3 (ver arquivo LICENSE).
+- Componentes de terceiros e suas licenças listados em assets/NOTICES/NOTICE_pt_BR.txt e no diretório LICENSES distribuído com o projeto.
 
 Contatos / suporte:
 - Autor: Fernando Nillsson Cidade

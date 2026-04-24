@@ -1,9 +1,9 @@
 ACADEMIC ASSESSMENTS SCHEDULE
-Version: 2026.4.23.0
+Version: 2026.4.24.0
 Author: Fernando Nillsson Cidade
 
 Summary:
-The Academic Assessments Schedule is a lightweight graphical utility for Windows developed in Python with PySide6. Its primary purpose is to consolidate, organize, and present the dates of assessment activities (exams, tests, assignments, presentations, etc.) for all courses enrolled in the current semester in a single accessible and visual location. The interface prioritizes quick consultation and temporal clarity, displaying activities in chronological order — from nearest to farthest — and offering tools for export, filtering, and visual customization.
+The Academic Assessments Schedule is a lightweight graphical utility for Windows developed in C++20 with Qt 6. Its primary purpose is to consolidate, organize, and present the dates of assessment activities (exams, tests, assignments, presentations, etc.) for all courses enrolled in the current semester in a single accessible and visual location. The interface prioritizes quick consultation and temporal clarity, displaying activities in chronological order — from nearest to farthest — and offering tools for export, filtering, and visual customization.
 
 Main features:
 - Registration of assessment activities with fields: course, syllabus, semester, subject, class, assessment type, sequence, and date.
@@ -14,15 +14,15 @@ Main features:
 - Individual and batch editing of entries; selective deletion.
 - Filters and automatic date sorting.
 - Persistence of user settings (language, color mode, preferences).
-- Prepared for packaging as a Windows executable (distribution without requiring manual installation of Python dependencies).
+- Prepared for distribution as a native Windows executable, with runtime dependencies deployed alongside the binary.
 
 Architecture and integration:
-- GUI: PySide6 (Qt) with custom widgets for dynamic selection of courses, syllabi, semesters and subjects.
+- GUI: Qt 6 (Core, Gui, Widgets, Sql and PrintSupport) with custom widgets for dynamic selection of courses, syllabi, semesters and subjects.
 - Main modules:
   - Gerenciador_Atividades: logic for creating, listing, editing, deleting and exporting activities.
   - Banco_Dados: provides lists and mappings of courses, classes and assessment types, enabling translation and language-specific configuration.
-- Persistence: preferences stored as JSON files in the user's persistent directory (e.g., AppData).
-- Operations requiring external libraries (e.g., PDF generation) use standard project Python libraries (ReportLab for PDF).
+- Persistence: local storage in an SQLite database, auxiliary JSON files and user preferences in the persistent directory.
+- PDF export and related routines use native Qt resources such as QPdfWriter and PrintSupport.
 
 Privacy and data storage:
 - All user data (activities and settings) are kept locally in the persistent directory.
@@ -37,12 +37,14 @@ How to use (quick guide):
 5. Change language or color mode in the options menu as needed.
 
 Distribution and packaging:
-- The project is compatible with packagers (e.g., PyInstaller) to generate Windows executables that include resources and translations.
-- When distributed as an executable, the end user does not need to install Python dependencies.
+- The project uses CMake, Qt LinguistTools and windeployqt to generate Windows executables with the required resources, translations and Qt libraries.
+- Separate distributions are produced for MSVC and MinGW toolchains while preserving the same functional application base.
+- When distributed as an executable, the end user does not need to install a C++/Qt development environment or additional development libraries.
 
 License:
-- Project licensed under MIT (see LICENSE file).
-- Third-party components (if any) retain their own licenses; license texts and notices are provided in the installer/packaging license folder.
+- Project licensed under GNU LGPL v3 (see LICENSE file).
+- Recipients may use, study, modify and redistribute the software under that license; third-party components retain their own licenses.
+- License texts, notices and trademark/copyright information are provided with the distribution package.
 
 Contacts and support:
 - Author: Fernando Nillsson Cidade
@@ -52,4 +54,4 @@ History and motivation:
 - Driven by the practical need to reduce time and friction when checking assessment deadlines, the application was created to transform a scattered process (multiple calendars, spreadsheets and messages) into a single, ordered and automated view of the semester. Color distinction, integrated translation and PDF export were implemented to make the tool useful in different academic contexts and to support better planning and reduced user anxiety.
 
 Final notes:
-- For developers interested in extending the project, consult README.md and the source code for details on module structure, extension points and persistence patterns.
+- For developers interested in extending the project, consult README.md, CMakeLists.txt and the source code for details on module structure, extension points, translation workflow and persistence patterns.

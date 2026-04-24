@@ -1,60 +1,54 @@
 Third‑Party Software Licenses and Attributions Notice
 Project: ACADEMIC ASSESSMENTS SCHEDULE
-Version 2026.4.23.0, April 23, 2026
+Version 2026.4.24.0, April 24, 2026
 
-This document lists the main third‑party libraries and components used in the ACADEMIC ASSESSMENTS SCHEDULE project and provides references to their licenses. Its purpose is to meet distribution requirements and offer clear information to users, integrators and reviewers. Project dependencies are listed in the requirements.txt file included in the repository/installer.
+This document lists the main third-party libraries and components used in the ACADEMIC ASSESSMENTS SCHEDULE project and provides references to their licenses. Its purpose is to meet distribution requirements and offer clear information to users, integrators and reviewers. The main project and build modules are defined in CMakeLists.txt and reflected in the runtime distribution delivered to the end user.
 
 General notice
-- The final product may be distributed as a Windows executable (build produced with tools such as Nuitka). Python libraries listed in requirements.txt are packaged into the binary according to the build.
-- Full license texts and third‑party copyright notices are provided in the distribution/installer package (LICENSE, LICENSES, NOTICE files or equivalent directory). To obtain source code copies required by certain licenses (for example LGPL), contact the author as indicated below.
+- The main project is licensed under GNU LGPL v3 (see LICENSE). This NOTICE focuses on third-party components, complementary attributions and distribution obligations.
+- The final product is distributed as a native Windows executable compiled from the C++/Qt codebase through CMake. Runtime dependencies, Qt libraries, plugins and applicable runtimes are delivered with the build according to the selected compiler toolchain.
+- Full license texts and third-party copyright notices are provided in the distribution/installer package (LICENSE, LICENSES, NOTICE files or equivalent directory). The corresponding source for the main project should accompany the distribution or be available through the related source repository/channel; for LGPL-covered third-party components, follow the instructions of the applicable supplier or license text.
 
 Main dependencies (references and licenses)
-- PySide6 / Shiboken6 — Qt for Python (LGPL v3)
-  https://github.com/qt/pyside
+- Qt 6 - Core, Gui, Widgets, Sql, PrintSupport modules and LinguistTools (Qt licensing / LGPL or commercial, as applicable)
+  https://www.qt.io/licensing/
   https://www.gnu.org/licenses/lgpl-3.0.html.en
 
-- ReportLab — PDF generation library (license and terms as per ReportLab project)
-  https://www.reportlab.com/
-  https://www.reportlab.com/dev/license/
+- Qt runtime plugins and deployed libraries used by the application (for example: platforms, imageformats, iconengines, networkinformation, sqldrivers, styles, tls, translations)
+  https://doc.qt.io/
 
-Other notable dependencies (varied licenses: MIT / Apache / BSD / compatible)
-- altgraph
-- autocommand
-- backports.tarfile
-- chardet / charset-normalizer
-- importlib_metadata / importlib_resources
-- jaraco.collections / jaraco.context / jaraco.functools / jaraco.text
-- more-itertools
-- packaging
-- pefile
-- pillow
-- platformdirs
-- tomli
-- zipp
-See requirements.txt for specific versions and PyPI links:
-https://pypi.org/project/<package-name>
+- QSQLITE / SQLite support for local persistence
+  https://doc.qt.io/qt-6/sql-driver.html
+  https://www.sqlite.org/copyright.html
+
+Other notable dependencies and auxiliary components
+- C++ standard library
+- Compiler/runtime components applicable to each Windows build (for example MSVC Redistributable or MinGW/GCC runtimes)
+- Build and deployment tools used by the project: CMake, Qt LinguistTools (lrelease) and windeployqt
 
 License handling and full texts
 - Full license texts for third‑party components, copyright notices and any required notices are included in the distribution/installer package (LICENSE, LICENSES, NOTICE files or equivalent).
-- If it is necessary to provide source code for components licensed under the LGPL (or similar licenses that require source availability), follow the instructions of each license — contact the author to coordinate provision of sources or relevant links.
+- If it is necessary to provide source code for components licensed under the LGPL (or similar licenses that require source availability), follow the instructions of each applicable license and preserve access to the corresponding source, build information or relinking materials when required.
 
 Statement on data transmission and privacy
 - The project's standard executable does not send automatic telemetry to external servers.
-- All user data (for example, activity lists, preference JSON files, PDF exports) is stored locally in the user's persistent directory (for example, %APPDATA% on Windows).
+- All user data (for example, a local SQLite database, preference JSON files, custom lists and PDF exports) is stored locally in the user's persistent directory.
 - Any optional integrations that involve data transmission will be documented and will require explicit user consent.
-- For details on personal data handling and privacy, consult the Privacy Policy included in the package (assets/PRIVACY_POLICY/Privacy_Policy_pt_BR.txt).
+- For details on personal data handling and privacy, consult the Privacy Policy included in the package (assets/PRIVACY_POLICY/Privacy_Policy_en_US.txt).
 
 Notes on library replacement (when applicable)
-- Dynamically linked libraries (e.g., PySide6 / Shiboken6) may, in specific builds, be replaced by compatible versions following packaging instructions. Replacement must comply with license obligations (for example, providing source when required by the LGPL).
+- Dynamically linked Qt libraries and plugins may, in specific builds, be replaced by compatible versions following deployment instructions. Replacement must comply with license obligations (for example, providing source when required by the LGPL).
 - Any modification or replacement of libraries in distributed binaries must be accompanied by the necessary license notices and texts.
 
 Obtaining full license texts
 - Useful links:
+  - Project license (GNU LGPL v3): see LICENSE and LICENSES/GNU LESSER GENERAL PUBLIC LICENSE Version 3.txt
   - LGPL v3: https://www.gnu.org/licenses/lgpl-3.0.html.en
   - MIT: https://opensource.org/licenses/MIT
   - BSD: https://opensource.org/licenses
   - Apache 2.0: https://www.apache.org/licenses/LICENSE-2.0
-  - ReportLab: https://www.reportlab.com/dev/license/
+  - Qt Licensing: https://www.qt.io/licensing/
+  - SQLite: https://www.sqlite.org/copyright.html
 
 Contact for source code requests, license clarifications or notices
 - Project author / responsible:
@@ -62,6 +56,6 @@ Contact for source code requests, license clarifications or notices
   Email: linceu_lighthouse@outlook.com
 
 Final remarks
-- This document has been adapted to reflect the dependencies and structure of the ACADEMIC ASSESSMENTS SCHEDULE project (see README.md, ABOUT and requirements.txt).
+- This document has been adapted to reflect the dependencies and structure of the ACADEMIC ASSESSMENTS SCHEDULE project (see README.md, ABOUT and CMakeLists.txt).
 - Keep backups of your data before updating, replacing libraries or modifying the executable.
 - If you require a full list with exact versions of each license included in the installer, consult the LICENSES directory / LICENSE / NOTICE files included in the distribution package or request them via the contact above.

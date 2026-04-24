@@ -1,64 +1,49 @@
-END USER LICENSE AGREEMENT - ACADEMIC ASSESSMENTS SCHEDULE
-Version 2026.4.23.0, April 23, 2026
+NOTICE FOR EXECUTABLE DISTRIBUTION - ACADEMIC ASSESSMENTS SCHEDULE
+Version 2026.4.24.0, April 24, 2026
 
-Copyright (c) 2025 Fernando Nillsson Cidade. All rights reserved.
-
-By installing, copying or using the Software distributed as an executable, you agree to be bound by the terms of this License. If you do not agree to the terms of this License, do not install or use the Software.
+This notice accompanies the Windows executable distribution of the Software. The Software itself is licensed under the GNU Lesser General Public License, version 3 ("GNU LGPL v3"), as published in the LICENSE file. This document is complementary and informational only; it does not replace, narrow or override the rights granted by the GNU LGPL v3.
 
 1. DEFINITIONS
-   "Licensor": Fernando Nillsson Cidade, the copyright holder of the Software.
-   "Software": ACADEMIC ASSESSMENTS SCHEDULE — a graphical utility for managing academic assessment dates, including the distributed executable, embedded resources, and associated documentation.
-   "Licensee" or "You": the natural or legal person who installs or uses the Software.
+   "Copyright Holder": Fernando Nillsson Cidade, original author of the Software.
+   "Software": ACADEMIC ASSESSMENTS SCHEDULE, including source code, compiled executable, embedded resources and project documentation distributed with it.
+   "Distribution Package": the set of files delivered to the recipient, which may include the executable, assets, licenses, notices and third-party runtime components.
+   "You": the natural or legal person who receives, uses or redistributes the Software.
 
-2. DISTRIBUTION ENVIRONMENT
-   The Software is provided as an installer/executable for Windows. The end user does not need to install Python or additional libraries to run the Software; the dependencies listed in requirements.txt are packaged into the binary according to the build.
+2. PROJECT LICENSE
+   - The Software is licensed under GNU LGPL v3. The LICENSE file is the authoritative legal text for the project.
+   - Subject to that license, you may use, study, copy, modify and redistribute the Software.
+   - If you distribute modified or unmodified copies, preserve the applicable copyright and license notices and comply with the obligations imposed by the GNU LGPL v3 and by the licenses of bundled third-party components.
 
-3. GRANT OF LICENSE
-   Subject to the terms of this License, the Licensor grants the Licensee a limited, non-exclusive, non-transferable and revocable license to use the Software according to the acquired license type (free or commercial).
+3. DISTRIBUTION ENVIRONMENT
+   - The Software may be distributed as a Windows executable built with C++20, Qt 6 and CMake.
+   - The end user does not need to install a compiler, the Qt SDK or development libraries to run the standard executable distribution; applicable runtime dependencies may accompany the package.
+   - Where the build dynamically links LGPL-covered components such as Qt libraries and plugins, recipients must remain able to replace those components with compatible versions as required by the applicable licenses.
 
-4. USE RESTRICTIONS
-   The Licensee shall not:
-   a) Reproduce, distribute, sublicense, lease, rent, lend, sell or transfer the executable, except when authorized by a separate commercial agreement;
-   b) Reverse engineer, decompile, disassemble or attempt to extract source code from the executable, except to the extent expressly permitted by applicable law;
-   c) Remove or alter intellectual property or trademark notices contained in the Software;
-   d) Use the Software for unlawful purposes or in violation of applicable regulations.
+4. SOURCE CODE AND LICENSE MATERIALS
+   - The distribution package should include or reference LICENSE, NOTICE and LICENSES materials.
+   - The corresponding source for the main project should accompany the distribution or be available through the related source repository or official source delivery channel.
+   - Third-party components remain governed by their own licenses; follow the relevant notices for any source-availability, attribution or redistribution obligations.
 
 5. FEATURES AND DATA STORAGE
-   - The Software stores user data and settings locally (for example, preference JSON files, activity lists, PDF exports) in the user's persistent directory (e.g., %APPDATA% on Windows).
-   - There is no automatic transmission of data to external servers in the standard executable; any telemetry or synchronization integrations will be explicitly disclosed and require the user's consent.
-   - The Software provides PDF export and other export routines depending on the build. Exported files are saved to the location chosen by the user.
+   - The Software stores user data and settings locally, for example in a local SQLite database, JSON configuration files, custom lists and exported PDF files.
+   - The standard executable does not automatically transmit telemetry to external servers.
+   - Any future optional integration that transmits data must be documented separately and should require explicit user action or consent.
 
-6. THIRD-PARTY COMPONENTS
-   - The Software may include third‑party components (e.g., PySide6, ReportLab, shiboken6, among others listed in requirements.txt). Those components are subject to their respective licenses.
-   - Third-party license texts and notices are provided in the distribution package (NOTICE, LICENSES).
+6. WARRANTY AND LIABILITY
+   - The Software is provided "AS IS", without express or implied warranties, to the extent permitted by applicable law and consistent with the GNU LGPL v3 and other applicable licenses.
+   - Nothing in this notice removes non-waivable statutory rights that may apply to a recipient under local law.
 
-7. UPDATES AND SUPPORT
-   - The Licensor may provide updates and fixes at its discretion. Support and update terms depend on the commercial license type where applicable.
-   - Automatic updates, when included, will be described in the distribution documentation; the user may choose to accept or decline their installation.
+7. TRADEMARKS AND OFFICIAL DISTRIBUTIONS
+   - The GNU LGPL v3 does not grant trademark rights in the project's names, logos or official visual identity.
+   - Redistribution of the Software under the GNU LGPL v3 is permitted, but use of project marks in a way that suggests endorsement, affiliation or official distribution requires authorization from the right holder.
 
-8. LIMITED WARRANTY AND LIMITATION OF LIABILITY
-   - The Software is provided "AS IS", without express or implied warranties, except for legal warranties that cannot be waived.
-   - To the extent permitted by law, the Licensor shall not be liable for indirect, special, incidental, consequential damages or loss of profits arising from the use or inability to use the Software.
-   - Where direct liability is legally recognized, compensation will be limited to the amount actually paid for the Software (if applicable) or BRL 5.00, whichever is greater.
+8. PRIVACY AND DATA PROTECTION
+   - Personal data handling for the standard executable is described in the Privacy Policy delivered with the distribution package.
+   - It is the responsibility of the user or organization to maintain backups of their local data and exported documents.
 
-9. PRIVACY AND DATA PROTECTION
-   - The Licensor declares that the standard executable does not collect automatic telemetry. Personal data processed by the Software will be handled in accordance with applicable law (e.g., LGPD) and as described in the Privacy Policy included in the package (assets/PRIVACY_POLICY/Privacy_Policy_pt_BR.txt).
-   - It is the responsibility of the user/organization to maintain backups of their data (exports, configuration files).
+9. PREVAILING TERMS
+   - If any statement in this notice conflicts with the LICENSE file or an applicable third-party license, the LICENSE file or the applicable third-party license prevails.
+   - This notice does not create additional restrictions on the exercise of rights already granted by the GNU LGPL v3.
 
-10. TERMINATION
-    - This License may be terminated for breach of its terms. After termination, the Licensee must cease use and remove the executable as applicable.
-    - In case of termination due to the Licensee's fault, amounts paid will not necessarily be refunded, unless otherwise agreed.
-
-11. GOVERNING LAW AND JURISDICTION
-    - This License shall be governed by Brazilian law.
-    - For the resolution of disputes, the courts of the District of São José dos Pinhais, State of Paraná, Brazil, are chosen.
-
-12. ADDITIONAL STATEMENTS
-    - Inclusion in digital stores or distribution adaptations may require additional conditions imposed by the respective distributors; such requirements do not automatically modify this License without written agreement.
-    - Additional services (customization, integration, training) will be subject to a separate agreement.
-
-13. ENTIRE AGREEMENT
-    - This License, together with the Privacy Policy and third‑party licenses included in the installer, constitutes the entire agreement between the parties with respect to the Software.
-
-Contact for information and support: as indicated in the installer/distribution.
+Contact for information and support: as indicated in the distribution package.
 Author / Contact: Fernando Nillsson Cidade — Email: linceu_lighthouse@outlook.com

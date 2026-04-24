@@ -6,7 +6,9 @@ The purpose of the ACADEMIC ASSESSMENTS SCHEDULE application has been, from the 
 
 To improve rapid identification, color distinction was implemented — each course or activity pattern can receive an associated color, making visual recognition immediate even in long lists. Integrated translation (pt_BR / en_US) expands the application's reach, serving multilingual contexts and facilitating use in international or bilingual academic environments.
 
-In addition, features such as PDF export, filters, batch editing, and automatic date sorting transform the small initial utility into a robust tool for managing the academic calendar. Configuration persistence and the ability to package the app as an executable make it practical to use and ready for distribution without manual dependencies.
+In addition, features such as PDF export, filters, batch editing, and automatic date sorting transform the small initial utility into a robust tool for managing the academic calendar. Configuration persistence, local storage through SQLite and auxiliary JSON files, and the ability to distribute the app as a native Windows executable make it practical for everyday use and deployment.
+
+In the current versions, this proposal has been consolidated in a native C++/Qt 6 codebase, built with CMake, runtime translations and separate distributions for MSVC and MinGW. This refactoring preserved the project's original idea while improving maintainability, build portability and integration with the Qt ecosystem.
 
 The creative justification that guided development was this: transform the temporal chaos of assessments into an ordered narrative of the semester — a "map of academic battles" that allows the user to plan their victories in advance. Each color, each entry and each export represent an effort to give time back to the user, reduce anxiety, and increase study efficiency and organization.
 

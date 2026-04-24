@@ -1,9 +1,11 @@
 COPYRIGHT AND TRADEMARK NOTICE
-Version 2026.4.23.0, April 23, 2026
+Version 2026.4.24.0, April 24, 2026
 ======================================
 
-Copyright (C) 2025–2026 Fernando Nillsson Cidade. All rights reserved.
+Copyright (C) 2025–2026 Fernando Nillsson Cidade.
 
-The AGENDA DE AVALIAÇÕES ACADÊMICAS software and all associated documentation, including all content of the Software and Dependencies, are the intellectual property of Fernando Nillsson Cidade. Copyright protection covers, but is not limited to, the program's source code, graphical interface, texts, manuals, and project description.
+The AGENDA DE AVALIAÇÕES ACADÊMICAS / ACADEMIC ASSESSMENTS SCHEDULE project and its original documentation are copyrighted works of Fernando Nillsson Cidade. This notice identifies authorship and ownership of the original project materials, including source code, interface texts, bundled documentation and project-specific assets.
 
-The name "AGENDA DE AVALIAÇÕES ACADÊMICAS" is a trademark belonging to Fernando Nillsson Cidade. The unauthorized use of the name, logo, or any distinctive material associated with the project is strictly prohibited.
+The project is distributed under the GNU Lesser General Public License, version 3, as described in the LICENSE file. That license grants recipients the rights to use, study, modify and redistribute the software under its terms.
+
+The names "AGENDA DE AVALIAÇÕES ACADÊMICAS" and "ACADEMIC ASSESSMENTS SCHEDULE", together with the official logos and distinctive visual identifiers used by the project, identify official distributions and official project communications. This notice does not limit the software freedoms granted by the GNU LGPL v3, but it does not grant permission to imply endorsement, affiliation or official origin without prior authorization from the right holder.

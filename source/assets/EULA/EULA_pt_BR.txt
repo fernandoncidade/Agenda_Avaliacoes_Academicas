@@ -1,64 +1,49 @@
-LICENÇA DE USO DE USUÁRIO FINAL - AGENDA DE AVALIAÇÕES ACADÊMICAS
-Versão 2026.4.23.0, 23 de abril de 2026
+AVISO PARA DISTRIBUIÇÃO DO EXECUTÁVEL - AGENDA DE AVALIAÇÕES ACADÊMICAS
+Versão 2026.4.24.0, 24 de abril de 2026
 
-Copyright (c) 2025 Fernando Nillsson Cidade. Todos os direitos reservados.
-
-Ao instalar, copiar ou utilizar o Software distribuído como executável, você concorda em estar vinculado pelos termos desta Licença. Se você não concordar com os termos desta Licença, não instale nem use o Software.
+Este aviso acompanha a distribuição do executável Windows do Software. O Software em si é licenciado sob a GNU Lesser General Public License, versão 3 ("GNU LGPL v3"), conforme publicada no arquivo LICENSE. Este documento é apenas complementar e informativo; ele não substitui, restringe nem prevalece sobre os direitos concedidos pela GNU LGPL v3.
 
 1. DEFINIÇÕES
-   "Licenciador": Fernando Nillsson Cidade, titular dos direitos autorais do Software.
-   "Software": AGENDA DE AVALIAÇÕES ACADÊMICAS — utilitário gráfico para gerenciamento de datas de avaliações acadêmicas, incluindo o executável distribuído, recursos embarcados e documentação associada.
-   "Licenciado" ou "Você": a pessoa física ou jurídica que instala ou utiliza o Software.
+   "Titular dos direitos": Fernando Nillsson Cidade, autor original do Software.
+   "Software": AGENDA DE AVALIAÇÕES ACADÊMICAS, incluindo código-fonte, executável compilado, recursos embarcados e documentação do projeto distribuída com ele.
+   "Pacote de distribuição": o conjunto de arquivos entregue ao destinatário, que pode incluir o executável, assets, licenças, notices e componentes de runtime de terceiros.
+   "Você": a pessoa física ou jurídica que recebe, utiliza ou redistribui o Software.
 
-2. AMBIENTE DE DISTRIBUIÇÃO
-   O Software é fornecido como instalador/executável para Windows. O usuário final não precisa instalar Python ou bibliotecas adicionais para executar o Software; dependências listadas em requirements.txt são empacotadas no binário conforme a build.
+2. LICENÇA DO PROJETO
+   - O Software é licenciado sob GNU LGPL v3. O arquivo LICENSE é o texto legal autoritativo do projeto.
+   - Nos termos dessa licença, você pode usar, estudar, copiar, modificar e redistribuir o Software.
+   - Ao distribuir cópias modificadas ou não modificadas, preserve os avisos de copyright e licença aplicáveis e cumpra as obrigações impostas pela GNU LGPL v3 e pelas licenças de componentes de terceiros incluídos.
 
-3. CONCESSÃO DE LICENÇA
-   Sujeito aos termos desta Licença, o Licenciador concede ao Licenciado uma licença limitada, não exclusiva, intransferível e revogável para usar o Software conforme a modalidade adquirida (gratuita ou comercial).
+3. AMBIENTE DE DISTRIBUIÇÃO
+   - O Software pode ser distribuído como executável Windows construído com C++20, Qt 6 e CMake.
+   - O usuário final não precisa instalar compilador, SDK do Qt ou bibliotecas de desenvolvimento para executar a distribuição padrão do executável; as dependências de runtime aplicáveis podem acompanhar o pacote.
+   - Quando a build vincular dinamicamente componentes cobertos por LGPL, como bibliotecas e plugins do Qt, os destinatários devem continuar aptos a substituir esses componentes por versões compatíveis, conforme exigido pelas licenças aplicáveis.
 
-4. RESTRIÇÕES DE USO
-   O Licenciado não poderá:
-   a) Reproduzir, distribuir, sublicenciar, alugar, arrendar, emprestar, vender ou transferir o executável, exceto quando autorizado por contrato comercial separado;
-   b) Realizar engenharia reversa, descompilar, desmontar ou tentar extrair código‑fonte do executável, exceto quando expressamente permitido por lei aplicável;
-   c) Remover ou alterar avisos de propriedade intelectual ou marca presentes no Software;
-   d) Usar o Software para fins ilícitos ou em desacordo com regulamentações aplicáveis.
+4. CÓDIGO-FONTE E MATERIAIS DE LICENÇA
+   - O pacote de distribuição deve incluir ou referenciar os materiais LICENSE, NOTICE e LICENSES.
+   - O código-fonte correspondente do projeto principal deve acompanhar a distribuição ou estar disponível por meio do repositório/canal oficial relacionado ao código.
+   - Componentes de terceiros continuam sujeitos às suas próprias licenças; siga os notices relevantes quanto a disponibilidade de fontes, atribuição ou obrigações de redistribuição.
 
 5. FUNCIONALIDADES E ARMAZENAMENTO DE DADOS
-   - O Software armazena localmente dados e configurações do usuário (por exemplo, arquivos JSON de preferências, listas de atividades, exportações PDF) no diretório persistente do usuário (por exemplo, %APPDATA% no Windows).
-   - Não há transmissão automática de dados a servidores externos no executável padrão; quaisquer integrações de telemetria ou sincronização serão explicitamente informadas e requererão consentimento do usuário.
-   - O Software oferece exportação para PDF e outras rotinas de exportação conforme a build. Arquivos exportados são salvos na localização escolhida pelo usuário.
+   - O Software armazena localmente dados e configurações do usuário, por exemplo em banco SQLite local, arquivos JSON de configuração, listas personalizadas e arquivos PDF exportados.
+   - O executável padrão não transmite telemetria automaticamente para servidores externos.
+   - Qualquer integração futura opcional que transmita dados deverá ser documentada separadamente e deverá depender de ação ou consentimento explícito do usuário.
 
-6. COMPONENTES DE TERCEIROS
-   - O Software pode incorporar componentes de terceiros (ex.: PySide6, ReportLab, shiboken6, entre outros listados em requirements.txt). Esses componentes estão sujeitos às suas respectivas licenças.
-   - Os textos de licença e avisos de terceiros são fornecidos no pacote de distribuição (NOTICE, LICENSES).
+6. GARANTIA E RESPONSABILIDADE
+   - O Software é fornecido "NO ESTADO EM QUE SE ENCONTRA", sem garantias expressas ou implícitas, na medida permitida pela lei aplicável e em conformidade com a GNU LGPL v3 e demais licenças aplicáveis.
+   - Nada neste aviso exclui direitos legais inderrogáveis que eventualmente protejam o destinatário segundo a legislação local.
 
-7. ATUALIZAÇÕES E SUPORTE
-   - O Licenciador pode fornecer atualizações e correções a seu critério. Termos de suporte e atualizações dependem da modalidade de licença comercial quando aplicável.
-   - Atualizações automáticas, quando incluídas, serão descritas na documentação de distribuição; o usuário poderá optar por aceitar ou recusar a instalação.
+7. MARCAS E DISTRIBUIÇÕES OFICIAIS
+   - A GNU LGPL v3 não concede direitos de marca sobre os nomes, logotipos ou identidade visual oficial do projeto.
+   - A redistribuição do Software sob GNU LGPL v3 é permitida, mas o uso de marcas do projeto de modo a sugerir endosso, afiliação ou distribuição oficial depende de autorização do titular.
 
-8. GARANTIA LIMITADA E LIMITAÇÃO DE RESPONSABILIDADE
-   - O Software é fornecido "NO ESTADO EM QUE SE ENCONTRA", sem garantias expressas ou implícitas, salvo as garantias legais aplicáveis.
-   - Na extensão permitida por lei, o Licenciador não será responsável por danos indiretos, especiais, incidentais, consequenciais ou lucros cessantes decorrentes do uso ou impossibilidade de uso do Software.
-   - Quando houver responsabilidade direta admitida por lei, a indenização estará limitada ao valor efetivamente pago pelo Software (se aplicável) ou a R$ 5,00, o que for maior.
+8. PRIVACIDADE E PROTEÇÃO DE DADOS
+   - O tratamento de dados pessoais no executável padrão é descrito na Política de Privacidade entregue com o pacote de distribuição.
+   - Cabe ao usuário ou à organização manter backups dos seus dados locais e documentos exportados.
 
-9. PRIVACIDADE E PROTEÇÃO DE DADOS
-   - O Licenciador declara que o executável padrão não coleta telemetria automática. Dados pessoais tratados pelo Software serão processados em conformidade com a legislação aplicável (ex.: LGPD) e conforme a Política de Privacidade incluída no pacote (assets/PRIVACY_POLICY/Privacy_Policy_pt_BR.txt).
-   - É responsabilidade do usuário/organização manter backups dos seus dados (exportações, arquivos de configuração).
+9. PREVALÊNCIA DOS TERMOS
+   - Se alguma afirmação deste aviso conflitar com o arquivo LICENSE ou com licença aplicável de terceiro, prevalece o arquivo LICENSE ou a licença de terceiro aplicável.
+   - Este aviso não cria restrições adicionais ao exercício dos direitos já concedidos pela GNU LGPL v3.
 
-10. RESCISÃO
-    - Esta Licença poderá ser rescindida por violação de suas cláusulas. Após rescisão, o Licenciado deve cessar o uso e remover o executável conforme aplicável.
-    - Em caso de término por culpa do Licenciado, os valores pagos não serão necessariamente reembolsados, salvo acordo em contrário.
-
-11. LEI APLICÁVEL E FORO
-    - Esta Licença será regida pelas leis brasileiras.
-    - Para dirimir litígios, fica eleito o foro da Comarca de São José dos Pinhais, Estado do Paraná, Brasil.
-
-12. DECLARAÇÕES ADICIONAIS
-    - Inclusão em lojas digitais ou adaptações de distribuição poderão exigir condições adicionais impostas pelos respectivos distribuidores; tais exigências não alteram automaticamente esta Licença sem acordo escrito.
-    - Serviços adicionais (customização, integração, treinamento) serão objeto de contrato separado.
-
-13. Acordo integral
-    - Esta Licença, juntamente com a Política de Privacidade e as licenças de terceiros incluídas no instalador, constitui o acordo completo entre as partes com relação ao Software.
-
-Contato para informações e suporte: conforme indicado no instalador/distribuição.
+Contato para informações e suporte: conforme indicado no pacote de distribuição.
 Autor / Contato: Fernando Nillsson Cidade — E-mail: linceu_lighthouse@outlook.com

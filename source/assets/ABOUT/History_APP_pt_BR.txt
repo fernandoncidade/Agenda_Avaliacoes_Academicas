@@ -6,7 +6,9 @@ O propósito do aplicativo AGENDA DE AVALIAÇÕES ACADÊMICAS foi, desde o princ
 
 Para melhorar a identificação rápida, a distinção por cores foi implementada — cada disciplina ou padrão de atividades pode receber uma cor associada, tornando o reconhecimento visual imediato mesmo em listas longas. A tradução integrada (pt_BR / en_US) amplia o alcance do aplicativo, atendendo a contextos multilíngues e facilitando o uso em ambientes acadêmicos internacionais ou bilíngues.
 
-Além disso, funcionalidades como exportação para PDF, filtros, edição em lote, e ordenação automática por data transformam o pequeno utilitário inicial em uma ferramenta robusta para gestão do calendário acadêmico. A persistência de configurações e a possibilidade de empacotamento como executável tornam o uso prático e pronto para distribuição sem dependências manuais.
+Além disso, funcionalidades como exportação para PDF, filtros, edição em lote, e ordenação automática por data transformam o pequeno utilitário inicial em uma ferramenta robusta para gestão do calendário acadêmico. A persistência de configurações, o armazenamento local em SQLite e arquivos JSON auxiliares, e a possibilidade de distribuição como executável nativo para Windows tornam o uso prático e pronto para instalação cotidiana.
+
+Nas versões atuais, essa proposta foi consolidada em uma base nativa em C++/Qt 6, com compilação por CMake, traduções em tempo de execução e distribuições separadas para MSVC e MinGW. Essa refatoração preservou a ideia original do projeto, mas elevou sua manutenção, portabilidade do build e integração com o ecossistema Qt.
 
 A justificativa criativa que guiou o desenvolvimento foi a seguinte: transformar o caos temporal das avaliações em uma narrativa ordenada do semestre — um "mapa das batalhas" acadêmicas que permita ao usuário planejar suas vitórias com antecedência. Cada cor, cada entrada e cada exportação representam um esforço para devolver tempo livre ao usuário, reduzir ansiedade e aumentar a eficiência de estudos e organização.
 

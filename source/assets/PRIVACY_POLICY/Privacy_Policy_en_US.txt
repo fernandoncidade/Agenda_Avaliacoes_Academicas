@@ -1,6 +1,6 @@
 Privacy Policy - ACADEMIC ASSESSMENTS SCHEDULE
-Last updated: April 23, 2026
-Version: 2026.4.23.0
+Last updated: April 24, 2026
+Version: 2026.4.24.0
 
 Purpose
 - This Policy describes how the ACADEMIC ASSESSMENTS SCHEDULE ("App" or "Software") collects, stores, processes and protects information within the user's environment. The application is designed to operate locally, without automatic telemetry by default.
@@ -11,12 +11,12 @@ Scope and principles
 
 Data processed
 - Activity data: titles, descriptions, assessment type, subject, course, semester, class, sequence and dates of activities entered by the user.
-- Preferences and settings: language, color mode, color mappings, local lists and other options stored in configuration files (JSON).
+- Preferences and settings: language, color mode, color mappings, local lists and other options stored in configuration files (JSON) and auxiliary local structures.
 - Generated/selected files: exports (for example PDF), import files and any files the user chooses to open or save via the App.
 - Local logs (optional): runtime or error logs may be written locally if the feature is enabled for diagnostics.
 
 Storage and retention
-- Storage location: data and settings are saved in the user's persistent directory (for example, %APPDATA% on Windows). The exact path is determined by the operating system.
+- Storage location: data and settings are saved in the user's persistent directory, including a local SQLite database, JSON files and exports. The exact path is determined by the operating system.
 - Retention: data remains until the user deletes it; the user may manually remove preferences, lists and exports at any time.
 - Exports: exported files (PDF, CSV, etc.) are saved to the location chosen by the user at the time of export.
 
@@ -34,7 +34,7 @@ Security
 - It is recommended to keep the system updated and perform regular backups of important data.
 
 Third parties and dependencies
-- The App uses third‑party libraries (e.g., PySide6, ReportLab) for the interface and PDF generation. These libraries are packaged into the executable when applicable (e.g., PyInstaller) and do not change the App's privacy policy.
+- The App uses third-party libraries and plugins related to the Qt 6 ecosystem (for example, Core, Gui, Widgets, Sql, PrintSupport and associated plugins) for the interface, local persistence and PDF generation. These components are delivered with the executable distribution and do not change the App's privacy policy.
 - Third‑party license texts and notices are included in the distribution folder (NOTICE / LICENSES).
 
 Data subject rights
@@ -54,4 +54,5 @@ Contact
   Email: linceu_lighthouse@outlook.com
 
 Final note
-- For additional information about licenses, notices and dependencies, consult assets/NOTICES/NOTICE_pt_BR.txt and the distribution package (LICENSE, LICENSES, NOTICE).
+- The project itself is licensed under GNU LGPL v3; consult the LICENSE file for the governing terms.
+- For additional information about licenses, notices and dependencies, consult assets/NOTICES/NOTICE_en_US.txt and the distribution package (LICENSE, LICENSES, NOTICE).

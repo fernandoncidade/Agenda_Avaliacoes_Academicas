@@ -1,0 +1,27 @@
+Diretório Específico (assets resumido) Agenda Avaliações Acadêmicas:
+
+python -m nuitka 
+--standalone 
+--follow-imports 
+--enable-plugin=pyside6 
+--enable-plugin=pylint-warnings 
+--enable-plugin=anti-bloat 
+--msvc=latest 
+--include-package=PySide6.QtCore 
+--include-package=PySide6.QtGui 
+--include-package=PySide6.QtWidgets 
+--include-data-dir="source\assets=assets" 
+--include-data-dir="source\language\translations=language\translations" 
+--windows-icon-from-ico=source\assets\icones\ReviewsManager.ico 
+--output-dir="D:\MISCELANEAS\VSCode\Nuitka\Agenda_Avaliacoes_Academicas" 
+--output-filename="Agenda_Avaliacoes_Academicas" 
+--windows-console-mode=disable 
+--show-progress 
+--show-memory 
+--assume-yes-for-downloads 
+main.py
+
+python -m nuitka --standalone --follow-imports --enable-plugin=pyside6 --enable-plugin=pylint-warnings --enable-plugin=anti-bloat --msvc=latest --include-package=PySide6.QtCore --include-package=PySide6.QtGui --include-package=PySide6.QtWidgets --include-data-dir="source\assets=assets" --include-data-dir="source\language\translations=language\translations" --windows-icon-from-ico=source\assets\icones\ReviewsManager.ico --output-dir="D:\MISCELANEAS\VSCode\Nuitka\Agenda_Avaliacoes_Academicas" --output-filename="Agenda_Avaliacoes_Academicas" --windows-console-mode=disable --show-progress --show-memory --assume-yes-for-downloads main.py
+
+
+

@@ -8,10 +8,15 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: update-readme-version-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   update-version:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -19,104 +24,203 @@ jobs:
           fetch-depth: 0
           persist-credentials: true
           token: ${{ secrets.GITHUB_TOKEN }}
-      
+
       - name: Extract version from push commits
         id: extract_version
+        shell: python
+        run: |
+          import json
+          import os
+          import re
+          import subprocess
+
+          event_path = os.environ["GITHUB_EVENT_PATH"]
+          output_path = os.environ["GITHUB_OUTPUT"]
+          version_pattern = re.compile(r"(?<!\d)[vV]?(\d+\.\d+\.\d+\.\d+)(?!\d)")
+
+          def find_versions(text: str):
+              if not text:
+                  return []
+              return version_pattern.findall(text)
+
+          def version_key(version: str):
+              return tuple(int(part) for part in version.split("."))
+
+          def highest_version(versions):
+              return max(versions, key=version_key) if versions else ""
+
+          with open(event_path, "r", encoding="utf-8") as handle:
+              event = json.load(handle)
+
+          version = ""
+          source = ""
+
+          head_message = ((event.get("head_commit") or {}).get("message")) or ""
+          head_versions = find_versions(head_message)
+          if head_versions:
+              version = highest_version(head_versions)
+              source = "head_commit.message"
+              print(f"Versions found in head_commit.message: {', '.join(head_versions)}")
+
+          if not version:
+              head_git = subprocess.run(
+                  ["git", "show", "-s", "--format=%B", "HEAD"],
+                  check=False,
+                  capture_output=True,
+                  text=True,
+              )
+              git_head_versions = find_versions(head_git.stdout)
+              if git_head_versions:
+                  version = highest_version(git_head_versions)
+                  source = "git HEAD message"
+                  print(f"Versions found in git HEAD message: {', '.join(git_head_versions)}")
+
+          if not version:
+              pushed_commit_versions = []
+              for commit in event.get("commits") or []:
+                  commit_versions = find_versions(commit.get("message", ""))
+                  if not commit_versions:
+                      continue
+
+                  best_commit_version = highest_version(commit_versions)
+                  commit_source = f"commits[{commit.get('id', '')[:7]}]"
+                  pushed_commit_versions.append((best_commit_version, commit_source))
+
+              if pushed_commit_versions:
+                  print("Versions found in pushed commits:")
+                  for candidate_version, candidate_source in pushed_commit_versions:
+                      print(f"- {candidate_source}: {candidate_version}")
+
+                  version, source = max(
+                      pushed_commit_versions,
+                      key=lambda item: version_key(item[0]),
+                  )
+
+          with open(output_path, "a", encoding="utf-8") as handle:
+              if version:
+                  print(f"Normalized version found: {version}")
+                  print(f"Source: {source}")
+                  handle.write("has_version=true\n")
+                  handle.write(f"version={version}\n")
+                  handle.write(f"readme_version=v{version}\n")
+              else:
+                  print("No version label found in head_commit, HEAD commit message, or pushed commits.")
+                  handle.write("has_version=false\n")
+
+      - name: Sync README.md version
+        if: steps.extract_version.outputs.has_version == 'true'
+        id: sync_readme
+        shell: python
+        env:
+          TARGET_VERSION: ${{ steps.extract_version.outputs.version }}
+        run: |
+          import difflib
+          import os
+          import pathlib
+          import re
+          import sys
+
+          readme_path = pathlib.Path("README.md")
+          original_text = readme_path.read_text(encoding="utf-8")
+          target_version = os.environ["TARGET_VERSION"]
+          target_token = f"v{target_version}"
+          output_path = pathlib.Path(os.environ["GITHUB_OUTPUT"])
+
+          def normalize(version: str) -> str:
+              return version.lstrip("vV")
+
+          patterns = {
+              "pt_BR": re.compile(
+                  r"^(Versão:\s*)(v?\d+\.\d+\.\d+\.\d+)(\s*(?:<br\s*/?>)?\s*)$",
+                  re.MULTILINE,
+              ),
+              "en_US": re.compile(
+                  r"^(Version:\s*)(v?\d+\.\d+\.\d+\.\d+)(\s*(?:<br\s*/?>)?\s*)$",
+                  re.MULTILINE,
+              ),
+          }
+
+          matches = {name: pattern.search(original_text) for name, pattern in patterns.items()}
+          missing = [name for name, match in matches.items() if match is None]
+          if missing:
+              raise SystemExit(
+                  "Unable to find canonical version lines in README.md for: "
+                  + ", ".join(missing)
+              )
+
+          current_pt = matches["pt_BR"].group(2)
+          current_en = matches["en_US"].group(2)
+
+          if normalize(current_pt) != normalize(current_en):
+              raise SystemExit(
+                  "README.md has mismatched versions between Portuguese and English sections: "
+                  f"{current_pt} != {current_en}"
+              )
+
+          current_version = normalize(current_pt)
+          current_token_candidates = []
+          for token in (current_pt, current_en, f"v{current_version}", current_version):
+              if token not in current_token_candidates:
+                  current_token_candidates.append(token)
+
+          if current_version == target_version:
+              print("README.md is already using the same version from the commit label.")
+              with output_path.open("a", encoding="utf-8") as handle:
+                  handle.write("has_changes=false\n")
+                  handle.write("replacements=0\n")
+              raise SystemExit(0)
+
+          updated_text = original_text
+          replacements = 0
+
+          for token in current_token_candidates:
+              if token == target_token:
+                  continue
+              token_count = updated_text.count(token)
+              if token_count:
+                  updated_text = updated_text.replace(token, target_token)
+                  replacements += token_count
+
+          if replacements == 0:
+              raise SystemExit(
+                  "No occurrences of the current README version were replaced. "
+                  "Please review the README structure."
+              )
+
+          readme_path.write_text(updated_text, encoding="utf-8")
+
+          print(f"Current README version: v{current_version}")
+          print(f"Target commit version:  {target_token}")
+          print(f"Total replacements:     {replacements}")
+          print("=== README diff ===")
+          diff = difflib.unified_diff(
+              original_text.splitlines(),
+              updated_text.splitlines(),
+              fromfile="README.md (before)",
+              tofile="README.md (after)",
+              lineterm="",
+          )
+          for line in diff:
+              print(line)
+          print("===================")
+
+          with output_path.open("a", encoding="utf-8") as handle:
+              handle.write("has_changes=true\n")
+              handle.write(f"replacements={replacements}\n")
+
+      - name: Commit and push changes
+        if: steps.extract_version.outputs.has_version == 'true' && steps.sync_readme.outputs.has_changes == 'true'
         shell: bash
         run: |
           set -euo pipefail
-          EVENT="$GITHUB_EVENT_PATH"
-          REGEX='v[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+'
+          VERSION="${{ steps.extract_version.outputs.readme_version }}"
 
-          echo "=== DEBUG: inspecting push payload ==="
-          jq -r '.head_commit.message // "NO_HEAD_COMMIT_MESSAGE"' "$EVENT" || true
-
-          VERSION=""
-
-          # 1) tentativas no head_commit
-          HEAD_MSG=$(jq -r '.head_commit.message // ""' "$EVENT")
-          if echo "$HEAD_MSG" | grep -oE "$REGEX" >/dev/null; then
-            VERSION=$(echo "$HEAD_MSG" | grep -oE "$REGEX" | tail -1)
-          fi
-
-          # 2) se não achou no head, procurar no array de commits (do mais recente para o mais antigo)
-          if [ -z "$VERSION" ]; then
-            while IFS= read -r msg; do
-              if echo "$msg" | grep -oE "$REGEX" >/dev/null; then
-                VERSION=$(echo "$msg" | grep -oE "$REGEX" | tail -1)
-                break
-              fi
-            done < <(jq -r '.commits | reverse | .[].message' "$EVENT")
-          fi
-
-          # 3) fallback: procurar no histórico git recente
-          if [ -z "$VERSION" ]; then
-            if git log -20 --pretty=%B | grep -oE "$REGEX" >/dev/null; then
-              VERSION=$(git log -20 --pretty=%B | grep -oE "$REGEX" | head -1)
-            fi
-          fi
-
-          if [ -n "$VERSION" ]; then
-            echo "Version found: $VERSION"
-            echo "version=$VERSION" >> "$GITHUB_OUTPUT"
-            echo "has_version=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "No version pattern found in push"
-            echo "has_version=false" >> "$GITHUB_OUTPUT"
-          fi
-      
-      - name: Debug - Show current README versions
-        if: steps.extract_version.outputs.has_version == 'true'
-        run: |
-          echo "=== Current versions in README.md ==="
-          grep -n -E 'v[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+' README.md || echo "No versions found"
-          echo "====================================="
-      
-      - name: Update README.md
-        if: steps.extract_version.outputs.has_version == 'true'
-        run: |
-          set -euo pipefail
-          VERSION="${{ steps.extract_version.outputs.version }}"
-          echo "Updating README.md with version $VERSION"
-
-          cp README.md README.md.bak
-          
-          BEFORE_COUNT=$(grep -o -E 'v[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+' README.md | wc -l || true)
-          echo "Found $BEFORE_COUNT version patterns before replacement"
-
-          # Substituir qualquer vX.X.X.X pelo $VERSION
-          sed -i -E "s/v[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/$VERSION/g" README.md
-          
-          AFTER_COUNT=$(grep -o -E "$VERSION" README.md | wc -l || true)
-          echo "Found $AFTER_COUNT occurrences of $VERSION after replacement"
-
-          echo "=== Changes made ==="
-          diff -u README.md.bak README.md || true
-          echo "===================="
-
-          rm README.md.bak
-          echo "README.md updated with version $VERSION"
-      
-      - name: Check for changes
-        if: steps.extract_version.outputs.has_version == 'true'
-        id: check_changes
-        run: |
-          if git diff --quiet README.md; then
-            echo "No changes detected in README.md"
-            echo "has_changes=false" >> $GITHUB_OUTPUT
-          else
-            echo "Changes detected in README.md:"
-            git diff README.md
-            echo "has_changes=true" >> $GITHUB_OUTPUT
-          fi
-      
-      - name: Commit and push changes
-        if: steps.extract_version.outputs.has_version == 'true' && steps.check_changes.outputs.has_changes == 'true'
-        run: |
-          VERSION="${{ steps.extract_version.outputs.version }}"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+
           git add README.md
-          git commit -m "chore: update version to $VERSION in README.md [skip ci]"
-          git pull --rebase
-          git push
+          git commit -m "chore: update README.md to ${VERSION} [skip ci]"
+
+          # Push explícito para a branch main
+          git push origin HEAD:main
+          

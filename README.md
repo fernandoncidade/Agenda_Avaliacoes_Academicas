@@ -15,7 +15,7 @@
 
 # AGENDA DE AVALIAÇÕES ACADÊMICAS
 
-Versão: v2026.4.23.0  
+Versão: v2026.4.24.0<br>
 Autor: Fernando Nillsson Cidade
 
 ## Visão geral
@@ -71,22 +71,29 @@ Ajuste hooks e arquivos de dados conforme necessário (traduções, assets, LICE
 ## Privacidade e armazenamento
 
 - Todos os dados do usuário são mantidos localmente; o executável padrão não envia telemetria automática.
-- Política de Privacidade: `assets/PRIVACY_POLICY/Privacy_Policy_pt_BR.txt`.
+- Política de Privacidade: `source/assets/PRIVACY_POLICY/Privacy_Policy_pt_BR.txt`.
 
 ## Licença, notices e terceiros
 
-- Projeto licenciado sob MIT — veja `LICENSE`.
-- Componentes de terceiros e avisos: `assets/NOTICES/NOTICE_pt_BR.txt`.
-- Dependências: `requirements.txt`.
+- Projeto licenciado sob GNU LGPL v3 — veja `LICENSE`.
+- Componentes de terceiros e avisos: `source/assets/NOTICES/NOTICE_pt_BR.txt`.
+- Dependências principais: Qt 6, SQLite, plugins Qt e runtimes aplicáveis à build.
 
-## Contrato comercial (quando aplicável)
+## Nota legal
 
-- Para usos comerciais e redistribuição consultar: `assets/CLC/CLC_pt_BR - Compression Manager.txt`.
+Fernando Nillsson Cidade é o autor, mantenedor e titular originário deste projeto, bem como das marcas, nomes e distribuições oficiais associadas ao software. Distribuições oficiais, suporte oficial e ofertas comerciais realizadas em nome do projeto dependem de sua autorização.
+
+A GNU LGPL v3 não concede, por si só, direitos de uso de marca. Este aviso não reduz nem substitui os direitos concedidos pela licença deste projeto e pelas licenças de terceiros distribuídas com ele. Terceiros podem instalar, usar, estudar, modificar e redistribuir o software nos termos da licença aplicável, devendo preservar os avisos legais e cumprir as obrigações da distribuição. Quanto aos componentes do framework Qt licenciados sob a GNU LGPL v3, terceiros podem substituir os arquivos correspondentes do framework, conforme essa licença: <https://www.gnu.org/licenses/lgpl-3.0.html.en>.
+
+## Termos comerciais opcionais
+
+- O uso, estudo, modificação e redistribuição do software seguem a GNU LGPL v3 e não exigem licença comercial separada.
+- Para suporte oficial, serviços de customização, uso de marca/nome em distribuições oficiais ou publicação oficial em lojas digitais, consulte: `source/assets/CLC/CLC_pt_BR.txt`.
 
 ## Sobre / Histórico
 
-- Informações e motivação do projeto: `assets/ABOUT/ABOUT_pt_BR.txt` e `assets/ABOUT/History_APP_pt_BR.txt`.
-- Release notes: `assets/RELEASE/RELEASE NOTES_pt_BR.txt`.
+- Informações e motivação do projeto: `source/assets/ABOUT/ABOUT_pt_BR.txt` e `source/assets/ABOUT/History_APP_pt_BR.txt`.
+- Release notes: `source/assets/RELEASE/RELEASE NOTES_pt_BR.txt`.
 
 ## Contribuição e suporte
 
@@ -95,7 +102,7 @@ Ajuste hooks e arquivos de dados conforme necessário (traduções, assets, LICE
 
 --- 
 
-Pequena nota: esta é a primeira versão pública (v2026.4.23.0). O foco foi estabilidade e simplicidade; futuras versões trarão filtros avançados, importação/exportação adicionais e melhorias de usabilidade.
+Pequena nota: esta é a primeira versão pública (v2026.4.24.0). O foco foi estabilidade e simplicidade; futuras versões trarão filtros avançados, importação/exportação adicionais e melhorias de usabilidade.
 
 --- 
 
@@ -108,7 +115,7 @@ Pequena nota: esta é a primeira versão pública (v2026.4.23.0). O foco foi est
 
 # ACADEMIC ASSESSMENTS SCHEDULE
 
-Version: v2026.4.23.0  
+Version: v2026.4.24.0<br>
 Author: Fernando Nillsson Cidade
 
 ## Overview
@@ -164,22 +171,29 @@ Adjust hooks and data files as needed (translations, assets, LICENSES, NOTICE, P
 ## Privacy and storage
 
 - All user data is kept locally; the default executable does not send automatic telemetry.
-- Privacy Policy: `assets/PRIVACY_POLICY/Privacy_Policy_pt_BR.txt`.
+- Privacy Policy: `source/assets/PRIVACY_POLICY/Privacy_Policy_en_US.txt`.
 
 ## License, notices and third parties
 
-- Project licensed under MIT — see `LICENSE`.
-- Third-party components and notices: `assets/NOTICES/NOTICE_pt_BR.txt`.
-- Dependencies: `requirements.txt`.
+- Project licensed under GNU LGPL v3 — see `LICENSE`.
+- Third-party components and notices: `source/assets/NOTICES/NOTICE_en_US.txt`.
+- Main dependencies: Qt 6, SQLite, Qt plugins and build-specific runtime components.
 
-## Commercial agreement (when applicable)
+## Legal notice
 
-- For commercial use and redistribution consult: `assets/CLC/CLC_pt_BR - Compression Manager.txt`.
+Fernando Nillsson Cidade is the author, maintainer and original right holder of this project, as well as of the trademarks, names and official distributions associated with the software. Official distributions, official support and commercial offers made in the name of the project depend on his authorization.
+
+The GNU LGPL v3 does not, by itself, grant trademark rights. This notice does not reduce or replace the rights granted by this project's license and by third-party licenses distributed with it. Third parties may install, use, study, modify and redistribute the software under the applicable license, provided they preserve the legal notices and comply with the distribution obligations. With respect to Qt framework components licensed under the GNU LGPL v3, third parties may replace the corresponding framework files in accordance with that license: <https://www.gnu.org/licenses/lgpl-3.0.html.en>.
+
+## Optional commercial terms
+
+- Use, study, modification and redistribution of the software are governed by the GNU LGPL v3 and do not require a separate commercial license.
+- For official support, customization services, trademark/name use in official distributions or official publication in digital stores, consult: `source/assets/CLC/CLC_en_US.txt`.
 
 ## About / History
 
-- Project information and motivation: `assets/ABOUT/ABOUT_pt_BR.txt` and `assets/ABOUT/History_APP_pt_BR.txt`.
-- Release notes: `assets/RELEASE/RELEASE NOTES_pt_BR.txt`.
+- Project information and motivation: `source/assets/ABOUT/ABOUT_en_US.txt` and `source/assets/ABOUT/History_APP_en_US.txt`.
+- Release notes: `source/assets/RELEASE/RELEASE NOTES_en_US.txt`.
 
 ## Contribution and support
 
@@ -188,7 +202,7 @@ Adjust hooks and data files as needed (translations, assets, LICENSES, NOTICE, P
 
 --- 
 
-Small note: this is the first public version (v2026.4.23.0). The focus was stability and simplicity; future releases will bring advanced filters, additional import/export and usability improvements.
+Small note: this is the first public version (v2026.4.24.0). The focus was stability and simplicity; future releases will bring advanced filters, additional import/export and usability improvements.
 
 --- 
 

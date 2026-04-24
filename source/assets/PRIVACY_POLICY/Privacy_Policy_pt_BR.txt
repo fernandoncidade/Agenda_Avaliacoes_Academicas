@@ -1,6 +1,6 @@
 Política de Privacidade - AGENDA DE AVALIAÇÕES ACADÊMICAS
-Última atualização: 23 de abril de 2026
-Versão: 2026.4.23.0
+Última atualização: 24 de abril de 2026
+Versão: 2026.4.24.0
 
 Objetivo
 - Esta Política descreve como a AGENDA DE AVALIAÇÕES ACADÊMICAS ("Aplicativo" ou "Software") coleta, armazena, processa e protege informações no ambiente do usuário. O aplicativo foi projetado para operar localmente, sem telemetria automática por padrão.
@@ -11,12 +11,12 @@ Escopo e princípios
 
 Dados processados
 - Dados de atividades: títulos, descrições, tipo de avaliação, disciplina, curso, semestre, turma, sequência e datas das atividades inseridas pelo usuário.
-- Preferências e configurações: idioma, modo de cores, mapeamentos de cores, listas locais e demais opções armazenadas em arquivos de configuração (JSON).
+- Preferências e configurações: idioma, modo de cores, mapeamentos de cores, listas locais e demais opções armazenadas em arquivos de configuração (JSON) e estruturas locais auxiliares.
 - Arquivos gerados/selecionados: exportações (por exemplo PDF), arquivos de importação e quaisquer arquivos que o usuário escolha abrir ou salvar por meio do Aplicativo.
 - Registros locais (opcionais): logs de execução ou de erro podem ser gravados localmente se o recurso estiver habilitado para diagnóstico.
 
 Armazenamento e retenção
-- Local de armazenamento: dados e configurações são salvos no diretório persistente do usuário (por exemplo, %APPDATA% no Windows). O caminho exato é definido pelo sistema operacional.
+- Local de armazenamento: dados e configurações são salvos no diretório persistente do usuário, incluindo banco de dados SQLite local, arquivos JSON e exportações. O caminho exato é definido pelo sistema operacional.
 - Retenção: os dados permanecem enquanto o usuário não os excluir; o usuário pode apagar manualmente preferências, listas e exportações a qualquer momento.
 - Exportações: arquivos exportados (PDF, CSV, etc.) são salvos no local escolhido pelo usuário no ato da exportação.
 
@@ -34,7 +34,7 @@ Segurança
 - Recomenda-se manter o sistema atualizado e realizar backups periódicos dos dados importantes.
 
 Terceiros e dependências
-- O Aplicativo utiliza bibliotecas de terceiros (ex.: PySide6, ReportLab) para interface e geração de PDFs. Essas bibliotecas são empacotadas no executável quando aplicável (ex.: PyInstaller) e não alteram a política de privacidade do Aplicativo.
+- O Aplicativo utiliza bibliotecas e plugins de terceiros relacionados ao ecossistema Qt 6 (por exemplo, Core, Gui, Widgets, Sql, PrintSupport e plugins associados) para interface, persistência local e geração de PDFs. Esses componentes acompanham a distribuição do executável e não alteram a política de privacidade do Aplicativo.
 - Textos de licença e avisos de terceiros constam na pasta de distribuição (NOTICE / LICENSES).
 
 Direitos do titular dos dados
@@ -54,4 +54,5 @@ Contato
   E-mail: linceu_lighthouse@outlook.com
 
 Observação final
+- O projeto em si é licenciado sob GNU LGPL v3; consulte o arquivo LICENSE para os termos aplicáveis.
 - Para informações adicionais sobre licenças, avisos e dependências, consulte assets/NOTICES/NOTICE_pt_BR.txt e o pacote de distribuição (LICENSE, LICENSES, NOTICE).

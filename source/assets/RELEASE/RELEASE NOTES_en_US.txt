@@ -1,11 +1,127 @@
-RELEASE NOTES: Version: 2026.4.23.0  
+RELEASE NOTES: Version: 2026.4.24.0
+April 24, 2026
+
+Summary:
+This release consolidates the final refactoring of Academic Assessments Schedule, originating from the Python project located at C:\Users\ferna\DEV\Python\Agenda_Avaliacoes_Academicas. The application was reorganized as a C++20/Qt 6 project with CMake, Ninja, MSVC and MinGW support, dedicated VS Code tasks, automated external deployment, and standalone maintenance tools for version and translation workflows.
+- The project legal documentation was aligned with the GNU LGPL v3 adopted in LICENSE, replacing outdated references to MIT or proprietary-only redistribution terms in the bundled notices.
+
+Refactoring goals:
+- Migrate the application codebase from Python/PySide6 to C++/Qt6 while preserving the original purpose: registering, organizing, querying, editing and exporting academic assessment activities.
+- Reduce dependency on Python scripts in the final application runtime.
+- Improve build, distribution and generated binary predictability.
+- Clearly separate the main application from auxiliary project maintenance tools.
+- Keep text resources, legal documents, translations, icons and support files integrated into the build and deployment flow.
+
+Main application:
+- The main project is now built as AgendaAvaliacoesAcademicas in C++/Qt6.
+- The code was organized into modules under source, preserving separation by database, graphical interface, activity management, language and utilities.
+- The graphical interface retains Portuguese (pt_BR) and English (en_US) support.
+- Assets, legal documents, notices, privacy policy, CLC, copyright, release notes and About-window content continue to be loaded from the source/assets structure.
+- The main application continues to compile .ts files into .qm files through an internal translation target named AgendaTranslations.
+- The DeployAgenda target copies the executable, assets and translations to D:\MISCELANEAS\VSCode\AGENDA\AgendaAvaliacoesAcademicas and runs windeployqt to include the required Qt dependencies.
+
+Custom lists and user experience:
+- The Course, Syllabus, Semester, Subject, Class, Assessment Activity Type and Activity Sequence fields now accept user-entered values in addition to predefined values.
+- Custom values are stored locally in listas.db, with dedicated tables for courses, syllabi, semesters, subjects, classes, activity types and sequences.
+- Built-in lists are automatically combined with custom values while preserving the relationship between course, syllabus, semester and subject.
+- Added Settings > Delete Item, with per-list submenus that allow custom items saved in listas.db to be removed.
+- Removing a custom item now shows a confirmation prompt before deletion and a success message after deletion.
+- Confirmation buttons were correctly translated as Sim/Não in Portuguese and Yes/No in English.
+- Combo box updates were stabilized to avoid intermediate signal triggers while dependent lists are reloaded.
+
+Build, VS Code and deployment:
+- The following VS Code configuration files were created and adjusted:
+  - .vscode/tasks.json
+  - .vscode/c_cpp_properties.json
+  - .vscode/cmake-kits.json
+  - .vscode/settings.json
+  - .vscode/qt_task.ps1
+  - .vscode/clear_builds.ps1
+- VS Code tasks were organized for MSVC and MinGW:
+  - Qt6: Compilar & Executar AGENDA (MSVC)
+  - Qt6: Compilar AGENDA (MSVC)
+  - Qt6: Executar AGENDA (MSVC)
+  - Qt6: VersionEditor (MSVC)
+  - Qt6: CompileTranslations (MSVC)
+  - Qt6: Compilar & Executar AGENDA (MinGW)
+  - Qt6: Compilar AGENDA (MinGW)
+  - Qt6: Executar AGENDA (MinGW)
+  - Qt6: VersionEditor (MinGW)
+  - Qt6: CompileTranslations (MinGW)
+- The main build produces separate directories at the project root:
+  - build_AGENDA_msvc
+  - build_AGENDA_mingw
+- The main build uses CMakePresets.json to configure the qt-msvc and qt-mingw presets.
+- Tasks were adjusted to run PowerShell through script files (-File), avoiding quoting and parsing failures in long commands.
+- clear_builds.ps1 removes the application and auxiliary tool build directories in a controlled way.
+
+Auxiliary tools in mocks:
+- The mocks directory now concentrates independent maintenance tools.
+- mocks/CMakeLists.txt was consolidated as the AgendaTools project, containing the following targets:
+  - VersionEditor
+  - CompileTranslations
+- Each auxiliary tool has a separate build with a complete CMake/Ninja structure and its own binary:
+  - mocks\VersionEditor_msvc
+  - mocks\VersionEditor_mingw
+  - mocks\CompileTranslations_msvc
+  - mocks\CompileTranslations_mingw
+- These directories contain structural files such as .qt, CMakeFiles, *_autogen, build.ninja, CMakeCache.txt, cmake_install.cmake, compile_commands.json, Ninja logs and the corresponding executable.
+- Auxiliary tools were separated from the main AGENDA build to avoid mixed artifacts, targets and executables.
+
+VersionEditor:
+- VersionEditor was refactored from the original auxiliary workflow and converted to C++/Qt.
+- The executable is generated separately for MSVC and MinGW.
+- The tool checks and updates text asset files, including Portuguese and English documents.
+- The initial version is loaded automatically from the current date using the year.month.day.0 format.
+- The version format does not use leading zeroes. Correct example: 2026.4.2.0. Incorrect example: 2026.04.02.0.
+- The version is filled together with the current date when the tool opens, but it no longer changes automatically when the user manually adjusts day, month or year.
+- The tool allows selecting the base folder, checking expected patterns and saving changes to supported documents.
+
+CompileTranslations:
+- CompileTranslations was moved to mocks and separated from the main build.
+- The tool received its own Qt interface for user interaction while compiling .ts files.
+- The UI allows selecting the translations folder, listing .ts files, checking files, compiling only checked files or compiling all files.
+- Compilation logs are shown directly in the window.
+- The executable uses lrelease from the configured Qt installation to generate .qm files.
+- Binaries are generated separately in mocks\CompileTranslations_msvc and mocks\CompileTranslations_mingw.
+
+Qt runtime for utility binaries:
+- The VersionEditor and CompileTranslations targets now run windeployqt automatically after compilation.
+- Required Qt DLLs are copied next to each executable:
+  - Qt6Core.dll
+  - Qt6Gui.dll
+  - Qt6Widgets.dll
+- The platforms\qwindows.dll platform plugin is also copied, allowing the binaries to run directly from File Explorer.
+- MinGW builds also receive dependencies such as libgcc_s_seh-1.dll, libstdc++-6.dll and libwinpthread-1.dll.
+- This fixes runtime errors caused by missing Qt6Core.dll, Qt6Gui.dll and Qt6Widgets.dll.
+
+Translations:
+- Portuguese and English .ts and .qm files remain under source/language/translations.
+- The main build continues to recompile translations required by the application.
+- CompileTranslations allows translations to be rebuilt manually through a graphical interface.
+- New application and tool interface messages were reflected in the translation files.
+
+Validation performed:
+- The main project was configured and built with the MSVC and MinGW presets.
+- The VersionEditor and CompileTranslations tools were configured, built and deployed with MSVC and MinGW.
+- Auxiliary builds were confirmed to generate the expected full structure and not pollute build_AGENDA_msvc or build_AGENDA_mingw.
+- Auxiliary binaries were confirmed to have the required Qt DLLs and plugins next to the executables.
+- The WrapVulkanHeaders warning may appear during Qt/CMake configuration, but it does not block compilation or execution of the tools.
+
+Final notes:
+- This release represents the transition from the original Python project to a more structured C++/Qt codebase with reproducible builds and integrated auxiliary tools.
+- The project now has a clearer development flow for version editing, translation compilation, MSVC/MinGW builds and external application distribution.
+
+_________________________________________________
+
+RELEASE NOTES: Version: 2026.4.23.0
 April 23, 2026
 
-Summary:  
+Summary:
 A new subject, "Social Engineering," has been implemented in the Civil Engineering program. This subject addresses the social aspects related to engineering, including the interaction between engineers and communities, professional ethics, and the social impact of engineering projects.
 
-Details:  
-- The subject "Social Engineering" has been added to the Civil Engineering curriculum.  
+Details:
+- The subject "Social Engineering" has been added to the Civil Engineering curriculum.
 - The subject code is TH045.
 
 Addendum for this version:
@@ -56,15 +172,15 @@ How to verify (quick checks):
 
 Privacy and storage:
 - All user data is kept locally; the standard executable does not send automatic telemetry.
-- See assets/PRIVACY_POLICY/Privacy_Policy_pt_BR.txt for details.
+- See assets/PRIVACY_POLICY/Privacy_Policy_en_US.txt for details.
 
 Known limitations (initial):
 - Cloud import/integration not implemented.
-- Advanced synchronization and multi‑user features are not present in this initial release.
+- Advanced synchronization and multi-user features are not present in this initial release.
 
 License and notices:
-- Project licensed under MIT (see LICENSE file).
-- Third‑party components and their licenses are listed in assets/NOTICES/NOTICE_pt_BR.txt and requirements.txt.
+- Project licensed under GNU LGPL v3 (see LICENSE file).
+- Third-party components and their licenses are listed in assets/NOTICES/NOTICE_en_US.txt and in the bundled LICENSES directory.
 
 Contacts / support:
 - Author: Fernando Nillsson Cidade
